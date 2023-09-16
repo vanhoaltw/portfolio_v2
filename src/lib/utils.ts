@@ -1,7 +1,14 @@
-import clsx, { ClassValue } from 'clsx';
+import { type ClassValue, clsx } from 'clsx';
+import { Project } from 'contentlayer/generated';
 import { twMerge } from 'tailwind-merge';
 
-/** Merge classes with tailwind-merge with clsx full feature */
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
+}
+
+export function sortDateFn<T extends Project>(contentA: T, contentB: T) {
+  return (
+    new Date(contentB.publishedAt).valueOf() -
+    new Date(contentA.publishedAt).valueOf()
+  );
 }

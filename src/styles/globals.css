@@ -2,43 +2,85 @@
 @tailwind components;
 @tailwind utilities;
 
+@import './mdx-contents.css';
+/* @import './mdx-components.css'; */
+
 :root {
-  /* #region  /**=========== Primary Color =========== */
-  /* !STARTERCONF Customize these variable, copy and paste from /styles/colors.css for list of colors */
-  --tw-color-primary-50: 240 249 255;
-  --tw-color-primary-100: 224 242 254;
-  --tw-color-primary-200: 186 230 253;
-  --tw-color-primary-300: 125 211 252;
-  --tw-color-primary-400: 56 189 248;
-  --tw-color-primary-500: 14 165 233;
-  --tw-color-primary-600: 2 132 199;
-  --tw-color-primary-700: 3 105 161;
-  --tw-color-primary-800: 7 89 133;
-  --tw-color-primary-900: 12 74 110;
-  --color-primary-50: rgb(var(--tw-color-primary-50)); /* #f0f9ff */
-  --color-primary-100: rgb(var(--tw-color-primary-100)); /* #e0f2fe */
-  --color-primary-200: rgb(var(--tw-color-primary-200)); /* #bae6fd */
-  --color-primary-300: rgb(var(--tw-color-primary-300)); /* #7dd3fc */
-  --color-primary-400: rgb(var(--tw-color-primary-400)); /* #38bdf8 */
-  --color-primary-500: rgb(var(--tw-color-primary-500)); /* #0ea5e9 */
-  --color-primary-600: rgb(var(--tw-color-primary-600)); /* #0284c7 */
-  --color-primary-700: rgb(var(--tw-color-primary-700)); /* #0369a1 */
-  --color-primary-800: rgb(var(--tw-color-primary-800)); /* #075985 */
-  --color-primary-900: rgb(var(--tw-color-primary-900)); /* #0c4a6e */
-  /* #endregion  /**======== Primary Color =========== */
+  --primary: 166 100% 69.6%;
+  --primary-foreground: 210 40% 98%;
+
+  --secondary: 210 40% 96.1%;
+  --secondary-foreground: 222.2 47.4% 11.2%;
+
+  --accent: 210 40% 96.1%;
+  --accent-foreground: 222.2 47.4% 11.2%;
+
+  /* Used for destructive actions such as <Button variant="destructive"> */
+  --destructive: 0 100% 50%;
+  --destructive-foreground: 210 40% 98%;
+
+  /* Default background color of <body />...etc */
+  --background: 210 3% 16%;
+  --foreground: 222.2 47.4% 11.2%;
+
+  /* Muted backgrounds such as <TabsList />, <Skeleton /> and <Switch /> */
+  --muted: 210 40% 96.1%;
+  --muted-foreground: 215.4 16.3% 46.9%;
+
+  --card: 0 0% 100%;
+  --card-foreground: 222.2 47.4% 11.2%;
+
+  --popover: 0 0% 100%;
+  --popover-foreground: 222.2 47.4% 11.2%;
+
+  --border: 215 19% 35%;
+  --input: 214.3 31.8% 91.4%;
+  --ring: 215 20.2% 65.1%;
+  --radius: 0.5rem;
+}
+
+.dark {
+  /* Default background color of <body />...etc */
+  --background: 225 6% 13%;
+  --foreground: 215 20.2% 65.1%;
+
+  --primary: 205 90% 48%;
+  --primary-foreground: 210 40% 98%;
+
+  --secondary: 0 0% 50%;
+  --secondary-foreground: 222.2 47.4% 11.2%;
+
+  --accent: 217 33% 17%;
+  --accent-foreground: 213 27% 84%;
+
+  /* Used for destructive actions such as <Button variant="destructive"> */
+  --destructive: 0 100% 50%;
+  --destructive-foreground: 210 40% 98%;
+
+  /* Muted backgrounds such as <TabsList />, <Skeleton /> and <Switch /> */
+  --muted: 210 40% 96.1%;
+  --muted-foreground: 215.4 16.3% 46.9%;
+
+  --card: 0 0% 9%;
+  --card-foreground: 222.2 47.4% 11.2%;
+
+  --popover: 222 47% 11%;
+  --popover-foreground: 215 20.2% 65.1%;
+
+  --border: 0 1% 22%;
+  --input: 0 1% 22%;
+  --ring: 205 90% 48%;
+  --radius: 0.5rem;
 }
 
 @layer base {
-  /* inter var - latin */
-  @font-face {
-    font-family: 'Inter';
-    font-style: normal;
-    font-weight: 100 900;
-    font-display: optional;
-    src: url('/fonts/inter-var-latin.woff2') format('woff2');
-    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
-      U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212,
-      U+2215, U+FEFF, U+FFFD;
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 120px;
   }
 
   .cursor-newtab {
@@ -47,32 +89,31 @@
 
   /* #region  /**=========== Typography =========== */
   .h0 {
-    @apply font-primary text-3xl font-bold md:text-5xl;
+    @apply font-primary text-3xl font-bold text-slate-600 dark:text-white md:text-5xl;
   }
 
   h1,
   .h1 {
-    @apply font-primary text-2xl font-bold md:text-4xl;
+    @apply font-primary text-2xl font-bold text-slate-600 dark:text-slate-200 md:text-3xl;
   }
 
   h2,
   .h2 {
-    @apply font-primary text-xl font-bold md:text-3xl;
+    @apply font-primary text-xl font-bold text-slate-600 dark:text-slate-200 md:text-2xl;
   }
 
   h3,
   .h3 {
-    @apply font-primary text-lg font-bold md:text-2xl;
+    @apply font-primary text-lg font-bold text-slate-600 dark:text-slate-200 md:text-2xl;
   }
 
   h4,
   .h4 {
-    @apply font-primary text-base font-bold md:text-lg;
+    @apply font-primary text-base font-bold text-slate-600 dark:text-slate-200 md:text-lg;
   }
 
-  body,
-  .p {
-    @apply font-primary text-sm md:text-base;
+  body {
+    @apply font-primary bg-white text-sm text-slate-600 antialiased [overflow:overlay] dark:bg-slate-900 dark:text-slate-400 md:text-base;
   }
   /* #endregion  /**======== Typography =========== */
 

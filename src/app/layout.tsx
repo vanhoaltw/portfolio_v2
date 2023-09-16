@@ -1,23 +1,29 @@
 import { Metadata } from 'next';
+import { Plus_Jakarta_Sans } from 'next/font/google';
 import * as React from 'react';
 
 import '@/styles/globals.css';
-// !STARTERCONF This is for demo purposes, remove @/styles/colors.css import immediately
 import '@/styles/colors.css';
 
+import Footer from '@/components/layouts/Footer';
+import Header from '@/components/layouts/Header';
+
+import RootProvider from '@/app/provider';
 import { siteConfig } from '@/constant/config';
 
-// !STARTERCONF Change these default meta
-// !STARTERCONF Look at @/constant/config to change them
+const fontSans = Plus_Jakarta_Sans({
+  subsets: ['latin'],
+  variable: '--font-sans',
+});
+
 export const metadata: Metadata = {
+  metadataBase: new URL(process.env.VERCEL_URL || 'http://localhost:3000/'),
   title: {
     default: siteConfig.title,
     template: `%s | ${siteConfig.title}`,
   },
   description: siteConfig.description,
   robots: { index: true, follow: true },
-  // !STARTERCONF this is the default favicon, you can generate your own from https://realfavicongenerator.net/
-  // ! copy to /favicon folder
   icons: {
     icon: '/favicon/favicon.ico',
     shortcut: '/favicon/favicon-16x16.png',
@@ -38,24 +44,31 @@ export const metadata: Metadata = {
     title: siteConfig.title,
     description: siteConfig.description,
     images: [`${siteConfig.url}/images/og.jpg`],
-    // creator: '@th_clarence',
   },
-  // authors: [
-  //   {
-  //     name: 'Theodorus Clarence',
-  //     url: 'https://theodorusclarence.com',
-  //   },
-  // ],
+  authors: [
+    {
+      name: siteConfig.author,
+      url: siteConfig.authorUrl,
+    },
+  ],
 };
 
-export default function RootLayout({
-  children,
-}: {
+interface RootProps {
   children: React.ReactNode;
-}) {
+}
+
+export default function RootLayout({ children }: RootProps) {
   return (
-    <html>
-      <body>{children}</body>
+    <html lang='en' suppressHydrationWarning>
+      <body className={fontSans.className}>
+        <main className={`${fontSans.variable}`}>
+          <RootProvider>
+            <Header />
+            <div className='min-h-screen'>{children}</div>
+            <Footer />
+          </RootProvider>
+        </main>
+      </body>
     </html>
   );
 }

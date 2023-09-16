@@ -1,71 +1,84 @@
-'use client';
+/* eslint-disable @next/next/no-img-element */
 
-import Head from 'next/head';
-import * as React from 'react';
+import { ArrowRight } from 'lucide-react';
+import Link from 'next/link';
 
-import ArrowLink from '@/components/links/ArrowLink';
-import ButtonLink from '@/components/links/ButtonLink';
-import UnderlineLink from '@/components/links/UnderlineLink';
-import UnstyledLink from '@/components/links/UnstyledLink';
+import { getFeaturedProjects } from '@/lib/mdx';
 
-/**
- * SVGR Support
- * Caveat: No React Props Type.
- *
- * You can override the next-env if the type is important to you
- * @see https://stackoverflow.com/questions/68103844/how-to-override-next-js-svg-module-declaration
- */
-import Logo from '~/svg/Logo.svg';
+import HeroSection from '@/components/home/HeroSection';
+import Quotes from '@/components/home/Quotes';
+import CardProject from '@/components/projects/CardProject';
+import { Button } from '@/components/ui/Button';
 
-// !STARTERCONF -> Select !STARTERCONF and CMD + SHIFT + F
-// Before you begin editing, follow all comments with `STARTERCONF`,
-// to customize the default configuration.
+export default async function HomePage() {
+  const featuredProject = getFeaturedProjects();
 
-export default function HomePage() {
   return (
-    <main>
-      <Head>
-        <title>Hi</title>
-      </Head>
-      <section className='bg-white'>
-        <div className='layout relative flex min-h-screen flex-col items-center justify-center py-12 text-center'>
-          <Logo className='w-16' />
-          <h1 className='mt-4'>Next.js + Tailwind CSS + TypeScript Starter</h1>
-          <p className='mt-2 text-sm text-gray-800'>
-            A starter for Next.js, Tailwind CSS, and TypeScript with Absolute
-            Import, Seo, Link component, pre-configured with Husky{' '}
-          </p>
-          <p className='mt-2 text-sm text-gray-700'>
-            <ArrowLink href='https://github.com/theodorusclarence/ts-nextjs-tailwind-starter'>
-              See the repository
-            </ArrowLink>
-          </p>
-
-          <ButtonLink className='mt-6' href='/components' variant='light'>
-            See all components
-          </ButtonLink>
-
-          <UnstyledLink
-            href='https://vercel.com/new/git/external?repository-url=https%3A%2F%2Fgithub.com%2Ftheodorusclarence%2Fts-nextjs-tailwind-starter'
-            className='mt-4'
+    <main className='relative'>
+      <div className='space-y-12'>
+        <div className='relative from-[#0c1222] via-[#0c122200] to-slate-900 dark:bg-gradient-to-b'>
+          <div
+            className='absolute inset-0 -top-16 -z-0 bg-slate-50 bg-bottom bg-no-repeat dark:bg-[#0B1120]'
+            style={{
+              backgroundSize: '86.125rem',
+              zIndex: -1,
+            }}
           >
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              width='92'
-              height='32'
-              src='https://vercel.com/button'
-              alt='Deploy with Vercel'
+            <div
+              className='bg-grid-slate-900/[0.04] dark:bg-grid-slate-400/[0.05] absolute inset-0 bg-[bottom_1px_center] dark:border-b dark:border-slate-100/5 dark:bg-bottom'
+              style={{
+                WebkitMaskImage: 'linear-gradient(transparent, black)',
+                backgroundImage: 'url("/images/square-dark.svg")',
+              }}
             />
-          </UnstyledLink>
-
-          <footer className='absolute bottom-2 text-gray-700'>
-            © {new Date().getFullYear()} By{' '}
-            <UnderlineLink href='https://theodorusclarence.com?ref=tsnextstarter'>
-              Theodorus Clarence
-            </UnderlineLink>
-          </footer>
+          </div>
+          <HeroSection />
         </div>
-      </section>
+
+        <div className='flex justify-center pb-16'>
+          <Quotes />
+        </div>
+
+        <section className='container'>
+          <strong className='text-violet-500'>Development</strong>
+          <h2 className='mb-1 mt-2'>Featured Projects</h2>
+          <p className='mb-6'>Some projects that I'm proud of</p>
+          <div className='grid-cols-project grid gap-4'>
+            {featuredProject.slice(0, 3).map((project) => (
+              <CardProject data={project} key={project._id} />
+            ))}
+          </div>
+
+          <Link href='/projects'>
+            <Button
+              variant='outline'
+              className='mx-auto mt-4 gap-2 transition-all hover:scale-100 hover:gap-4 hover:bg-slate-900'
+            >
+              See more projects <ArrowRight size={16} />
+            </Button>
+          </Link>
+        </section>
+
+        {/* <section className='container'>
+          <strong className='text-sky-500'>Writing</strong>
+          <h2 className='mb-1 mt-2'>Featured Posts</h2>
+          <p className='mb-6'>I write something about life & development</p>
+          <div className='grid-cols-project grid gap-4'>
+            {featuredProject.slice(0, 3).map((project) => (
+              <CardProject data={project} key={project._id} />
+            ))}
+          </div>
+
+          <Link href='/projects'>
+            <Button
+              variant='outline'
+              className='mx-auto mt-4 gap-2 transition-all hover:scale-100 hover:gap-4 hover:bg-slate-900'
+            >
+              See more blogs <ArrowRight size={16} />
+            </Button>
+          </Link>
+        </section> */}
+      </div>
     </main>
   );
 }
