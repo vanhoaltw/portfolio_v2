@@ -3,10 +3,6 @@ import { allProjects } from 'contentlayer/generated';
 import CardProject from '@/components/projects/CardProject';
 import HeaderPage from '@/components/projects/HeaderPage';
 
-export const generateStaticParams = async () => {
-  return allProjects.map((post) => ({ slug: post._raw.flattenedPath }));
-};
-
 export const generateMetadata = () => {
   return { title: 'Projects' };
 };

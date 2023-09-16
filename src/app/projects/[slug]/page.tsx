@@ -18,6 +18,10 @@ interface Props {
   };
 }
 
+export const generateStaticParams = async () => {
+  return allProjects.map((post) => ({ slug: post._raw.flattenedPath }));
+};
+
 export const generateMetadata = ({ params }: Props) => {
   const post = allProjects.find((p) =>
     p._raw.flattenedPath.includes(params.slug)
