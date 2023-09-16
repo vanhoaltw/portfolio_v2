@@ -10,7 +10,7 @@ const Logo = ({ size = 25 }) => {
       className='flex items-center text-xl text-sky-400 transition-opacity hover:opacity-60'
     >
       <NextImage
-        src='/svg/logo.svg'
+        src='/svg/Logo.svg'
         alt={siteConfig.title}
         height={size}
         width={size}
