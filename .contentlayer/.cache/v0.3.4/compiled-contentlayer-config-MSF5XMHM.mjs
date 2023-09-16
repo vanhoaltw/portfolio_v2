@@ -1,44 +1,44 @@
 // contentlayer.config.ts
-import { defineDocumentType, makeSource } from 'contentlayer/source-files';
-import rehypeAutolinkHeadings from 'rehype-autolink-headings';
-import rehypePrettyCode from 'rehype-pretty-code';
-import rehypeSlug from 'rehype-slug';
+import { defineDocumentType, makeSource } from "contentlayer/source-files";
+import rehypeAutolinkHeadings from "rehype-autolink-headings";
+import rehypePrettyCode from "rehype-pretty-code";
+import rehypeSlug from "rehype-slug";
 var Project = defineDocumentType(() => ({
-  name: 'Project',
+  name: "Project",
   filePathPattern: `projects/**/*.mdx`,
-  contentType: 'mdx',
+  contentType: "mdx",
   fields: {
-    id: { type: 'number', required: true },
-    title: { type: 'string', required: true },
-    description: { type: 'string' },
-    category: { type: 'string' },
-    publishedAt: { type: 'date', required: true },
-    techs: { type: 'string' },
-    banner: { type: 'string' },
-    link: { type: 'string' },
-    github: { type: 'string' },
-    duration: { type: 'number' },
-    featured: { type: 'boolean' },
+    id: { type: "number", required: true },
+    title: { type: "string", required: true },
+    description: { type: "string" },
+    category: { type: "string" },
+    publishedAt: { type: "date", required: true },
+    techs: { type: "string" },
+    banner: { type: "string" },
+    link: { type: "string" },
+    github: { type: "string" },
+    duration: { type: "number" },
+    featured: { type: "boolean" }
   },
   computedFields: {
     url: {
-      type: 'string',
-      resolve: (doc) => `/${doc._raw.flattenedPath}`,
+      type: "string",
+      resolve: (doc) => `/${doc._raw.flattenedPath}`
     },
     readTime: {
-      type: 'number',
+      type: "number",
       resolve: (doc) => {
         const wordsPerMinute = 200;
         const noOfWords = doc.body.raw.split(/\s/g).length;
         const minutes = noOfWords / wordsPerMinute;
         const readTime = Math.ceil(minutes);
         return readTime;
-      },
-    },
-  },
+      }
+    }
+  }
 }));
 var contentlayer_config_default = makeSource({
-  contentDirPath: 'src/contents',
+  contentDirPath: "src/contents",
   documentTypes: [Project],
   mdx: {
     cwd: process.cwd(),
@@ -50,9 +50,9 @@ var contentlayer_config_default = makeSource({
          */
         rehypeAutolinkHeadings,
         {
-          behavior: 'wrap',
+          behavior: "wrap",
           // test: ['h2', 'h3'],
-          properties: { class: 'heading-link' },
+          properties: { class: "heading-link" }
           // content: '#',
           // content: s(
           //   'svg',
@@ -75,21 +75,23 @@ var contentlayer_config_default = makeSource({
           //   //   s('line', { x1: '16', y1: '3', x2: '14', y2: '21' }),
           //   // ]
           // ),
-        },
+        }
       ],
       [
         rehypePrettyCode,
         {
-          theme: 'github-dark',
+          theme: "github-dark",
           onVisitLine(node) {
             if (node.children.length === 0) {
-              node.children = [{ type: 'text', value: ' ' }];
+              node.children = [{ type: "text", value: " " }];
             }
-          },
-        },
-      ],
-    ],
-  },
+          }
+        }
+      ]
+    ]
+  }
 });
-export { contentlayer_config_default as default };
+export {
+  contentlayer_config_default as default
+};
 //# sourceMappingURL=compiled-contentlayer-config-MSF5XMHM.mjs.map
