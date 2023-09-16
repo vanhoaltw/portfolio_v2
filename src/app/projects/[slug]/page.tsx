@@ -18,7 +18,10 @@ interface Props {
 }
 
 export const generateStaticParams = async () => {
-  return allProjects.map((post) => ({ slug: post._raw.flattenedPath }));
+  console.log({ allProjects });
+  return allProjects.map((post) => ({
+    slug: post._raw.flattenedPath.split('/')[2],
+  }));
 };
 
 export const generateMetadata = ({ params }: Props) => {
