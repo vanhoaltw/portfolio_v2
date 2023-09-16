@@ -29,7 +29,7 @@ export default function ClImage({
 
   const urlBlurred = buildUrl(publicId, {
     cloud: {
-      cloudName: process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME || 'hoanguyen',
+      cloudName: 'hoanguyen',
     },
     transformations: {
       effect: {
@@ -44,7 +44,7 @@ export default function ClImage({
 
   const url = buildUrl(publicId, {
     cloud: {
-      cloudName: process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME || 'hoanguyen',
+      cloudName: 'hoanguyen',
     },
     transformations: {
       rawTransformation: aspect
