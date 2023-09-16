@@ -2,6 +2,7 @@
 import { allProjects } from 'contentlayer/generated';
 import { User } from 'lucide-react';
 import Link from 'next/link';
+import { notFound } from 'next/navigation';
 import { BiTime } from 'react-icons/bi';
 import { GrGithub } from 'react-icons/gr';
 import { HiLink } from 'react-icons/hi';
@@ -9,8 +10,6 @@ import { HiLink } from 'react-icons/hi';
 import Mdx from '@/components/mdx';
 import TableOfContent from '@/components/TableOfContent';
 import ClImage from '@/components/ui/ClImage';
-
-import NotFound from '@/app/not-found';
 
 interface Props {
   params: {
@@ -37,7 +36,7 @@ const ProjectDetail = ({ params }: Props) => {
     p._raw.flattenedPath.includes(params.slug)
   );
 
-  if (!post) return <NotFound />;
+  if (!post) return notFound();
 
   return (
     <div className='container mt-10 space-y-4'>
