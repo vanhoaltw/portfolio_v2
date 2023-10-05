@@ -1,14 +1,11 @@
 /* eslint-disable @next/next/no-img-element */
 
-import { ArrowRight } from 'lucide-react';
-import Link from 'next/link';
-
 import { getFeaturedProjects } from '@/lib/mdx';
 
+import Analysis from '@/components/home/Analysis';
 import HeroSection from '@/components/home/HeroSection';
 import Quotes from '@/components/home/Quotes';
 import CardProject from '@/components/projects/CardProject';
-import { Button } from '@/components/ui/Button';
 
 export default async function HomePage() {
   const featuredProject = getFeaturedProjects();
@@ -32,31 +29,50 @@ export default async function HomePage() {
               }}
             />
           </div>
+
           <HeroSection />
         </div>
 
-        <div className='flex justify-center pb-16'>
+        <section className='container pb-16'>
+          <Analysis />
+        </section>
+
+        <section className='flex justify-center pb-16'>
           <Quotes />
-        </div>
+        </section>
+
+        {/* <section className='container'>
+          <div>
+            <h2 className='mb-1'>Blog</h2>
+            <p className='mb-6'>Web development thoughts and stories</p>
+          </div>
+
+          <div className='grid-cols-project grid gap-4'>
+            {featuredBlogs.map((i) => (
+              <CardBlog data={i} key={i._id} />
+            ))}
+          </div>
+        </section> */}
 
         <section className='container'>
-          <strong className='text-violet-500'>Development</strong>
-          <h2 className='mb-1 mt-2'>Featured Projects</h2>
-          <p className='mb-6'>Some projects that I'm proud of</p>
+          <div>
+            <h2 className='mb-1 mt-2'>Projects</h2>
+            <p className='mb-6'>Showcase of my front-end related work</p>
+          </div>
           <div className='grid-cols-project grid gap-4'>
-            {featuredProject.slice(0, 3).map((project) => (
+            {featuredProject.map((project) => (
               <CardProject data={project} key={project._id} />
             ))}
           </div>
 
-          <Link href='/projects'>
+          {/* <Link href='/projects'>
             <Button
               variant='outline'
               className='mx-auto mt-4 gap-2 transition-all hover:scale-100 hover:gap-4 hover:bg-slate-900'
             >
               See more projects <ArrowRight size={16} />
             </Button>
-          </Link>
+          </Link> */}
         </section>
 
         {/* <section className='container'>

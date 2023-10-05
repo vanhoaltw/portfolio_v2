@@ -8,4 +8,5 @@ export const siteConfig = {
   linkedUrl: 'https://www.linkedin.com/in/vanhoaltw',
   instagramUrl: 'https://www.instagram.com/aristino.0.1',
   gmail: 'vanhoatlw@gmail.com',
+  githubUrl: 'https://github.com/vanhoaltw',
 };

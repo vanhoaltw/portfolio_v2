@@ -35,7 +35,7 @@ const ButtonLink = React.forwardRef<HTMLAnchorElement, ButtonLinkProps>(
       children,
       className,
       variant = 'primary',
-      size = 'base',
+      size = 'sm',
       isDarkBg = false,
       leftIcon: LeftIcon,
       rightIcon: RightIcon,
@@ -49,7 +49,7 @@ const ButtonLink = React.forwardRef<HTMLAnchorElement, ButtonLinkProps>(
         ref={ref}
         {...rest}
         className={cn(
-          'inline-flex items-center rounded font-medium',
+          'inline-flex items-center rounded-md font-bold',
           'focus-visible:ring-primary-500 focus:outline-none focus-visible:ring',
           'shadow-sm',
           'transition-colors duration-75',
@@ -62,7 +62,7 @@ const ButtonLink = React.forwardRef<HTMLAnchorElement, ButtonLinkProps>(
           //#region  //*=========== Variants ===========
           [
             variant === 'primary' && [
-              'bg-primary-500 text-white',
+              'bg-slate-500 text-white',
               'border-primary-600 border',
               'hover:bg-primary-600 hover:text-white',
               'active:bg-primary-700',
@@ -71,7 +71,7 @@ const ButtonLink = React.forwardRef<HTMLAnchorElement, ButtonLinkProps>(
             variant === 'outline' && [
               'text-primary-500',
               'border-primary-500 border',
-              'hover:bg-primary-50 active:bg-primary-100 disabled:bg-primary-100',
+              'disabled:bg-primary-100 hover:bg-slate-100 dark:hover:bg-slate-800 dark:active:bg-slate-200 dark:active:bg-slate-800',
               isDarkBg &&
                 'hover:bg-gray-900 active:bg-gray-800 disabled:bg-gray-800',
             ],

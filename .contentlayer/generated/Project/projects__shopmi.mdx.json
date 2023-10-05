@@ -1,0 +1,25 @@
+{
+  "id": 5,
+  "title": "ShopMi",
+  "description": "E-commerce website",
+  "category": "Team of 2, as Front-End freelancer",
+  "publishedAt": "2022-10-01T00:00:00.000Z",
+  "techs": "nuxt,vuejs,axios",
+  "banner": "/v1696340205/Screenshot_2023-10-03_at_20.33.59_i9zupo.png",
+  "link": "https://shopmi-web.makefamousapp.com",
+  "body": {
+    "raw": "\n> ## Short Explanation\n\nShopMi is e-commerce website where user can search and buy anything their want. This web app had been built by Vuejs + <UnderlineLink href=\"https://nuxt.com/\">Nuxt</UnderlineLink>\n\n<br />\n\n> ## Tech Stack Used\n\n<TechStack className='text-3xl' data={['nuxt', 'vuejs', 'axios']} />\n\n<br />\n\n> ## Screenshot\n\n<ClImage\n  publicId='/v1696341342/Screenshot_2023-10-03_at_20.55.15_q4beik.png'\n  width={1200}\n  height={600}\n/>\n",
+    "code": "var Component=(()=>{var u=Object.create;var c=Object.defineProperty;var p=Object.getOwnPropertyDescriptor;var m=Object.getOwnPropertyNames;var b=Object.getPrototypeOf,x=Object.prototype.hasOwnProperty;var f=(n,e)=>()=>(e||n((e={exports:{}}).exports,e),e.exports),_=(n,e)=>{for(var o in e)c(n,o,{get:e[o],enumerable:!0})},a=(n,e,o,r)=>{if(e&&typeof e==\"object\"||typeof e==\"function\")for(let i of m(e))!x.call(n,i)&&i!==o&&c(n,i,{get:()=>e[i],enumerable:!(r=p(e,i))||r.enumerable});return n};var k=(n,e,o)=>(o=n!=null?u(b(n)):{},a(e||!n||!n.__esModule?c(o,\"default\",{value:n,enumerable:!0}):o,n)),g=n=>a(c({},\"__esModule\",{value:!0}),n);var d=f((M,h)=>{h.exports=_jsx_runtime});var y={};_(y,{default:()=>S,frontmatter:()=>j});var t=k(d()),j={id:5,title:\"ShopMi\",description:\"E-commerce website\",category:\"Team of 2, as Front-End freelancer\",publishedAt:\"2022-10-01\",techs:\"nuxt,vuejs,axios\",banner:\"/v1696340205/Screenshot_2023-10-03_at_20.33.59_i9zupo.png\",link:\"https://shopmi-web.makefamousapp.com\"};function l(n){let e=Object.assign({blockquote:\"blockquote\",h2:\"h2\",p:\"p\"},n.components),{UnderlineLink:o,TechStack:r,ClImage:i}=e;return i||s(\"ClImage\",!0),r||s(\"TechStack\",!0),o||s(\"UnderlineLink\",!0),(0,t.jsxs)(t.Fragment,{children:[(0,t.jsxs)(e.blockquote,{children:[`\n`,(0,t.jsx)(e.h2,{id:\"short-explanation\",children:\"Short Explanation\"}),`\n`]}),`\n`,(0,t.jsxs)(e.p,{children:[\"ShopMi is e-commerce website where user can search and buy anything their want. This web app had been built by Vuejs + \",(0,t.jsx)(o,{href:\"https://nuxt.com/\",children:\"Nuxt\"})]}),`\n`,(0,t.jsx)(\"br\",{}),`\n`,(0,t.jsxs)(e.blockquote,{children:[`\n`,(0,t.jsx)(e.h2,{id:\"tech-stack-used\",children:\"Tech Stack Used\"}),`\n`]}),`\n`,(0,t.jsx)(r,{className:\"text-3xl\",data:[\"nuxt\",\"vuejs\",\"axios\"]}),`\n`,(0,t.jsx)(\"br\",{}),`\n`,(0,t.jsxs)(e.blockquote,{children:[`\n`,(0,t.jsx)(e.h2,{id:\"screenshot\",children:\"Screenshot\"}),`\n`]}),`\n`,(0,t.jsx)(i,{publicId:\"/v1696341342/Screenshot_2023-10-03_at_20.55.15_q4beik.png\",width:1200,height:600})]})}function w(n={}){let{wrapper:e}=n.components||{};return e?(0,t.jsx)(e,Object.assign({},n,{children:(0,t.jsx)(l,n)})):l(n)}var S=w;function s(n,e){throw new Error(\"Expected \"+(e?\"component\":\"object\")+\" `\"+n+\"` to be defined: you likely forgot to import, pass, or provide it.\")}return g(y);})();\n;return Component;"
+  },
+  "_id": "projects/shopmi.mdx",
+  "_raw": {
+    "sourceFilePath": "projects/shopmi.mdx",
+    "sourceFileName": "shopmi.mdx",
+    "sourceFileDir": "projects",
+    "contentType": "mdx",
+    "flattenedPath": "projects/shopmi"
+  },
+  "type": "Project",
+  "url": "/projects/shopmi",
+  "readTime": 1
+}

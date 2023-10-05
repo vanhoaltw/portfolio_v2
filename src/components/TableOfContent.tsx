@@ -54,13 +54,13 @@ const TableOfContent = () => {
   return (
     <div
       ref={tocParentRef}
-      className='max-h-[70vh] overflow-auto rounded-3xl border p-4 py-6 dark:border-slate-600 dark:bg-slate-800/40'
+      className='max-h-[70vh] overflow-auto rounded-xl border dark:bg-[#161e31]'
     >
-      <h4 className='text-lg'>Table of contents</h4>
+      <p className='p-4 font-bold dark:text-slate-200'>Table of contents</p>
 
-      <hr className='my-4' />
+      <hr />
 
-      <div className='flex flex-col gap-2 text-sm font-semibold'>
+      <div className='flex flex-col gap-2 p-4 text-sm font-semibold'>
         {toc?.map?.((i) => (
           <TOCLink
             id={i.id}

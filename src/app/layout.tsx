@@ -1,12 +1,13 @@
 import { Metadata } from 'next';
 import { Plus_Jakarta_Sans } from 'next/font/google';
+import NextTopLoader from 'nextjs-toploader';
 import * as React from 'react';
 
 import '@/styles/globals.css';
-import '@/styles/colors.css';
 
 import Footer from '@/components/layouts/Footer';
 import Header from '@/components/layouts/Header';
+import SkipNavigation from '@/components/SkipNavigation';
 
 import RootProvider from '@/app/provider';
 import { siteConfig } from '@/constant/config';
@@ -25,7 +26,7 @@ export const metadata: Metadata = {
   description: siteConfig.description,
   robots: { index: true, follow: true },
   icons: {
-    icon: '/favicon/favicon.ico',
+    icon: '/favicon/favicon.png',
     shortcut: '/favicon/favicon-16x16.png',
     apple: '/favicon/apple-touch-icon.png',
   },
@@ -35,7 +36,7 @@ export const metadata: Metadata = {
     title: siteConfig.title,
     description: siteConfig.description,
     siteName: siteConfig.title,
-    images: [`${siteConfig.url}/images/og.jpg`],
+    images: [`/images/og.png`],
     type: 'website',
     locale: 'en_US',
   },
@@ -43,7 +44,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: siteConfig.title,
     description: siteConfig.description,
-    images: [`${siteConfig.url}/images/og.jpg`],
+    images: [`${siteConfig.url}/images/og.png`],
   },
   authors: [
     {
@@ -63,8 +64,20 @@ export default function RootLayout({ children }: RootProps) {
       <body className={fontSans.className}>
         <main className={`${fontSans.variable}`}>
           <RootProvider>
+            <SkipNavigation />
+            <NextTopLoader
+              color='#2299DD'
+              initialPosition={0.08}
+              crawlSpeed={200}
+              height={3}
+              crawl={true}
+              showSpinner={true}
+              easing='ease'
+              speed={200}
+              shadow='0 0 10px #2299DD,0 0 5px #2299DD'
+            />
             <Header />
-            <div className='min-h-screen'>{children}</div>
+            <div style={{ minHeight: 'calc(100vh - 370px)' }}>{children}</div>
             <Footer />
           </RootProvider>
         </main>

@@ -1,23 +1,32 @@
 import Image from 'next/image';
-import Link from 'next/link';
 import { useMDXComponent } from 'next-contentlayer/hooks';
 import React from 'react';
 
+import ClImage from '@/components/ClImage';
+import UnderlineLink from '@/components/links/UnderlineLink';
+import Code from '@/components/mdx/Code';
+import { H2, H3 } from '@/components/mdx/custom-components/Heading';
+import { Hr } from '@/components/mdx/custom-components/Hr';
+import { Link } from '@/components/mdx/custom-components/Link';
+import { Pre } from '@/components/mdx/custom-components/Pre';
 import SplitImage, { Split } from '@/components/mdx/SplitImage';
 import TechStack from '@/components/mdx/TechStack';
-import ClImage from '@/components/ui/ClImage';
 
 const components = {
   a: Link,
   Image: Image,
   ClImage: ClImage,
   TechStack: TechStack,
-  // pre: Pre,
-  // // code: CustomCode,
+  pre: Pre,
+  code: Code,
   // CloudinaryImg,
   // LiteYouTubeEmbed,
   SplitImage,
   Split,
+  h2: H2,
+  h3: H3,
+  hr: Hr,
+  UnderlineLink: UnderlineLink,
   // TechIcons,
   // TweetCard,
   // GithubCard,

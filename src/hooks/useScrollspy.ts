@@ -4,7 +4,7 @@ export const useScrollspy = () => {
   const [activeSection, setActiveSection] = useState<string | null>(null);
 
   const onScroll = () => {
-    const sections = document.getElementsByClassName('heading-link');
+    const sections = document.getElementsByClassName('mdx-heading__anchor');
     let prevBBox = null;
     let currentSectionId = activeSection;
 

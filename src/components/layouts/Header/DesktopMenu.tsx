@@ -1,10 +1,8 @@
-import { GithubIcon } from 'lucide-react';
 import { usePathname } from 'next/navigation';
 
 import ToggleTheme from '@/components/layouts/Header/ToggleTheme';
 import PrimaryLink from '@/components/links/PrimaryLink';
 
-import { siteConfig } from '@/constant/config';
 import { NAVS_MAIN } from '@/constant/navs';
 
 export default function DesktopMenu() {
@@ -17,7 +15,7 @@ export default function DesktopMenu() {
           <div key={`${nav.name}-${idx}`}>
             <PrimaryLink
               href={nav.url}
-              className='group relative mt-1 h-5 w-12  overflow-hidden font-semibold dark:text-slate-300'
+              className='group relative mt-1 h-5 overflow-hidden font-semibold dark:text-slate-300'
             >
               <div>
                 <div className={isActive ? 'text-sky-400' : 'hover:opacity-60'}>
@@ -30,15 +28,6 @@ export default function DesktopMenu() {
       })}
 
       <div className='flex grow items-center justify-end gap-4'>
-        <PrimaryLink
-          href={siteConfig.authorUrl}
-          className='text-sm hover:text-sky-400'
-        >
-          <GithubIcon size={22} />
-        </PrimaryLink>
-
-        <span className='text-slate-500'>|</span>
-
         <ToggleTheme />
       </div>
     </nav>

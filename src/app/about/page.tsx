@@ -1,13 +1,14 @@
 'use client';
 
 import { m } from 'framer-motion';
+import { Mail } from 'lucide-react';
 
 import Experience from '@/components/about/Experience';
+import ClImage from '@/components/ClImage';
 import MyStacks from '@/components/home/MyStacks';
-import ClImage from '@/components/ui/ClImage';
+import PrimaryLink from '@/components/links/PrimaryLink';
 
 import { animationFade } from '@/constant/animation';
-import { siteConfig } from '@/constant/config';
 
 export default function AboutPage() {
   return (
@@ -31,8 +32,7 @@ export default function AboutPage() {
             }}
           >
             <m.li variants={animationFade}>
-              Hello! My name is{' '}
-              <span className='text-sky-400'>{siteConfig.author}</span>. I'm a
+              Hello! My name is <span className='text-sky-400'>Hoà</span>. I'm a
               passionate dev with +1 year of work experience in
               JavaScript/TypeScript, I'm a lover of page design or other things
               and whenever I can I try to learn new technologies since I
@@ -49,7 +49,7 @@ export default function AboutPage() {
             <MyStacks />
           </m.ul>
           <div className='flex w-full justify-center'>
-            <div className='w-full max-w-[350px] shrink-0'>
+            <div className='w-full max-w-[350px] shrink-0 overflow-hidden rounded-md'>
               <ClImage
                 publicId='v1694705834/z4307307354915_ecf9978fe47a8defeb7affcbbb4a5315_2_grxy5z.jpg'
                 height={600}
@@ -61,16 +61,62 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section>
-        <h2 className='h1 mb-4 font-mono'>Where i've worked</h2>
+      <section className='min-h-[450px]'>
+        <h2 className='h1 mb-4'>Where i've worked</h2>
         <Experience />
       </section>
 
       <section className='mt-20'>
-        <h2 className='h1 font-mono'>Contact</h2>
-        <p className='mt-4 text-gray-400'>
-          Do contact me if you need my opinion about web development, especially
-          frontend works. I’ll be happy to help! (find my email in the footer)
+        <h2 className='h1'>Contact</h2>
+        <div className='mt-4 overflow-hidden rounded-md border'>
+          <table className='w-full text-left text-sm text-slate-500 dark:text-slate-400'>
+            <thead>
+              <tr className='border-b dark:text-white'>
+                <th scope='col' className='px-6 py-3'>
+                  Contact
+                </th>
+                <th scope='col' className='px-6 py-3'>
+                  Detail
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr className='border-b'>
+                <th scope='row' className='px-6 py-3'>
+                  Address
+                </th>
+                <th scope='row' className='px-6 py-4'>
+                  District 9, Thu Duc city
+                </th>
+              </tr>
+              <tr className='border-b'>
+                <th scope='row' className='px-6 py-3'>
+                  Email
+                </th>
+                <th scope='row' className='px-6 py-3 font-medium'>
+                  <PrimaryLink
+                    className='inline-flex items-center gap-1 font-semibold text-sky-400'
+                    href='mailto:vanhoaltw@gmail.com'
+                  >
+                    <Mail size={15} />
+                    vanhoaltw@gmail.com
+                  </PrimaryLink>
+                </th>
+              </tr>
+              <tr>
+                <th scope='row' className='px-6 py-3'>
+                  Phone
+                </th>
+                <th scope='row' className='px-6 py-4'>
+                  <p>+84 778699653</p>
+                </th>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p className='mt-2'>
+          If you need any further information, please do not hesitate to send me
+          an email first.
         </p>
       </section>
     </main>

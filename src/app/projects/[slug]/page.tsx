@@ -5,11 +5,12 @@ import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { BiTime } from 'react-icons/bi';
 import { GrGithub } from 'react-icons/gr';
-import { HiLink } from 'react-icons/hi';
+import { RiGlobalLine } from 'react-icons/ri';
 
+import ClImage from '@/components/ClImage';
+import UnderlineLink from '@/components/links/UnderlineLink';
 import Mdx from '@/components/mdx';
 import TableOfContent from '@/components/TableOfContent';
-import ClImage from '@/components/ui/ClImage';
 
 interface Props {
   params: {
@@ -18,7 +19,6 @@ interface Props {
 }
 
 export const generateStaticParams = async () => {
-  console.log({ allProjects });
   return allProjects.map((post) => ({
     slug: post._raw.flattenedPath.split('/')[2],
   }));
@@ -47,7 +47,7 @@ const ProjectDetail = ({ params }: Props) => {
         width={1440}
         height={600}
         publicId={post?.banner}
-        className='z-0 cursor-pointer rounded-2xl'
+        className='rounded-2xl'
       />
 
       <h1 className='text-4xl font-bold'>{post?.title}</h1>
@@ -58,7 +58,7 @@ const ProjectDetail = ({ params }: Props) => {
           <User size={15} /> {post.category}
         </p>
       )}
-      <div className='flex items-center gap-4  text-sm'>
+      <div className='flex items-start gap-4  text-sm'>
         <p className='flex items-center gap-1'>
           <BiTime /> {post?.readTime || 1} minutes to read
         </p>
@@ -73,13 +73,13 @@ const ProjectDetail = ({ params }: Props) => {
         )}
 
         {post?.link && (
-          <Link
+          <UnderlineLink
             href={post.link}
             target='_blank'
-            className='flex items-center gap-1 text-white hover:underline'
+            className='flex items-center gap-1 text-white'
           >
-            <HiLink /> Live demo
-          </Link>
+            <RiGlobalLine /> Live demo
+          </UnderlineLink>
         )}
       </div>
 

@@ -12,7 +12,7 @@ export const useToc = (slug: string) => {
 
     const headingArr: HeadingScrollSpy = [];
     headings.forEach((heading) => {
-      const id = heading.id;
+      const id = heading.id.replace('link-', '');
       const level = +heading.tagName.replace('H', '');
       const text = heading.textContent + '';
 

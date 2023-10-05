@@ -6,13 +6,15 @@ import {
 } from 'lucide-react';
 import React from 'react';
 
+import { cn } from '@/lib/utils';
+
 import PrimaryLink from '@/components/links/PrimaryLink';
 
 import { siteConfig } from '@/constant/config';
 
-const Socials = () => {
+const Socials = ({ className }: { className?: string }) => {
   return (
-    <div className='flex justify-center gap-2'>
+    <div className={cn('flex gap-2', className)}>
       {stacks.map(({ name, icon, url }) => (
         <PrimaryLink
           key={name}
@@ -28,9 +30,9 @@ const Socials = () => {
 };
 
 const stacks = [
-  { name: 'Github', icon: <GithubIcon />, url: siteConfig.authorUrl },
+  { name: 'Github', icon: <GithubIcon />, url: siteConfig.githubUrl },
   { name: 'Linked in', icon: <LinkedinIcon />, url: siteConfig.linkedUrl },
   { name: 'Instagram', icon: <InstagramIcon />, url: siteConfig.instagramUrl },
-  { name: 'Mail', icon: <MailIcon />, url: '' },
+  { name: 'Mail', icon: <MailIcon />, url: 'mailto:vanhoaltw@gmail.com' },
 ];
 export default Socials;

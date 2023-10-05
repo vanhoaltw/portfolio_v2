@@ -3,14 +3,14 @@ import NextImage from '@/components/NextImage';
 
 import { siteConfig } from '@/constant/config';
 
-const Logo = ({ size = 25 }) => {
+const Logo = ({ size = 30 }) => {
   return (
     <PrimaryLink
       href='/'
       className='flex items-center text-xl text-sky-400 transition-opacity hover:opacity-60'
     >
       <NextImage
-        src='/svg/Logo.svg'
+        src='/logo.png'
         alt={siteConfig.title}
         height={size}
         width={size}

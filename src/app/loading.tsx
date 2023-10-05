@@ -8,7 +8,10 @@ export const metadata: Metadata = {
 export default function Loading() {
   return (
     <main>
-      <section>Loading....</section>
+      <div className='fixed left-0 top-0 flex h-full w-full flex-col items-center justify-center'>
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img src='/loading.gif' height={150} width={150} alt='loading' />
+      </div>
     </main>
   );
 }

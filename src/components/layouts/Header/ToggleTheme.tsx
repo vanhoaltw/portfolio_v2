@@ -24,6 +24,7 @@ const ToggleTheme = () => {
             className='absolute rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100'
             size={20}
           />
+
           <span className='sr-only'>Toggle theme</span>
         </IconButton>
       </DropdownMenuTrigger>

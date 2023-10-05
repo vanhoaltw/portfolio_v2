@@ -1,7 +1,11 @@
+'use client';
+
 import buildUrl from 'cloudinary-build-url';
 import Image from 'next/image';
 
 import { cn } from '@/lib/utils';
+
+import { appPreviewImg } from '@/components/GlobalImagePreview';
 
 export default function ClImage({
   width,
@@ -11,7 +15,7 @@ export default function ClImage({
   publicId = 'Fdfsfs',
   alt = '',
   className,
-  preview,
+  preview = true,
 }: {
   width: number;
   height: number;
@@ -29,7 +33,7 @@ export default function ClImage({
 
   const urlBlurred = buildUrl(publicId, {
     cloud: {
-      cloudName: 'hoanguyen',
+      cloudName: process.env.CLOUDINARY_CLOUD_NAME || 'hoanguyen',
     },
     transformations: {
       effect: {
@@ -44,7 +48,7 @@ export default function ClImage({
 
   const url = buildUrl(publicId, {
     cloud: {
-      cloudName: 'hoanguyen',
+      cloudName: process.env.CLOUDINARY_CLOUD_NAME || 'hoanguyen',
     },
     transformations: {
       rawTransformation: aspect
@@ -53,11 +57,20 @@ export default function ClImage({
     },
   });
 
+  const handlePreviewImg = () => {
+    if (preview) appPreviewImg?.current?.show?.(url);
+  };
+
   return (
     <figure
-      className={cn('relative overflow-hidden rounded-lg', className, {
-        'mx-auto w-full': mdx && +width <= 800,
-      })}
+      className={cn(
+        'relative overflow-hidden',
+        {
+          'mx-auto w-full': mdx && +width <= 800,
+        },
+        preview ? 'cursor-zoom-in' : 'cursor-default',
+        className
+      )}
       style={mdx && +width <= 800 ? { maxWidth: width } : {}}
     >
       <div
@@ -67,9 +80,8 @@ export default function ClImage({
           paddingTop: aspectRatio
             ? `${aspectRatio * 100}%`
             : `${(+height / +width) * 100}%`,
-          cursor: preview ? 'zoom-in' : 'default',
         }}
-        // onClick={preview ? () => setIsOpen(true) : undefined}
+        onClick={handlePreviewImg}
       >
         <div
           className='absolute inset-0 z-0 bg-cover bg-center blur-lg'

@@ -7,11 +7,10 @@ const nextConfig = {
     dirs: ['src'],
   },
   reactStrictMode: true,
-  // swcMinify: true,
+  swcMinify: true,
   images: {
     domains: ['res.cloudinary.com'],
   },
-
   webpack(config) {
     const fileLoaderRule = config.module.rules.find((rule) =>
       rule.test?.test?.('.svg')

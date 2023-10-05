@@ -19,20 +19,20 @@
 
 /* blockquote */
 .mdx blockquote {
-  @apply relative my-6 mt-12 py-1;
+  @apply relative mb-6;
 }
 
-.mdx hr {
+/* .mdx hr {
   @apply border-slate-700;
-}
+} */
 
-.mdx a:not(a.heading-link) {
+/* .mdx a:not(a.heading-link) {
   @apply text-sky-400 hover:underline;
-}
-.mdx a p {
+} */
+/* .mdx a p {
   @apply inline-block w-fit;
-}
-.mdx a:not(a.heading-link)::after {
+} */
+/* .mdx a:not(a.heading-link)::after {
   content: '';
   height: 16px;
   width: 16px;
@@ -43,36 +43,30 @@
   mask-image: url('/svg/Share.svg');
   display: inline-block;
   @apply text-sky-400 hover:underline;
-}
+} */
 
 .heading-link {
   @apply relative pr-6;
 }
-.heading-link:hover::after {
+/* .heading-link:hover::after {
   opacity: 100;
-}
-.heading-link::after {
+} */
+/* .heading-link::after {
   opacity: 0;
   content: '#';
   @apply absolute -right-0 top-1/2 -translate-y-1/2 text-xl font-normal;
-}
+} */
 
 .mdx h2 {
-  @apply relative pl-3 text-xl leading-10 sm:text-2xl;
-}
-.mdx h2::before {
-  content: '';
-  position: absolute;
-  left: 0;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  height: 100%;
-  width: 4px;
-  @apply rounded-lg  bg-sky-400;
+  @apply relative text-xl leading-10 sm:text-2xl;
 }
 
 .mdx h3 {
   @apply text-lg leading-9 sm:text-xl;
+}
+
+.mdx p {
+  @apply mb-6;
 }
 
 .mdx hr {

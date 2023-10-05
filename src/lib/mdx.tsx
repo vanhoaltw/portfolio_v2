@@ -8,7 +8,21 @@
 // import rehypeSlug from 'rehype-slug';
 // import remarkGfm from 'remark-gfm';
 
-import { allProjects } from 'contentlayer/generated';
+import { allBlogs, allProjects } from 'contentlayer/generated';
+import { File } from 'lucide-react';
+import { ReactElement } from 'react';
+import {
+  SiCss3,
+  SiHtml5,
+  SiJavascript,
+  SiNpm,
+  SiPnpm,
+  SiReact,
+  SiTailwindcss,
+  SiTypescript,
+  SiWebpack,
+  SiYarn,
+} from 'react-icons/si';
 
 // type ContentType = 'blog' | 'library' | 'projects';
 // // import {
@@ -163,5 +177,99 @@ export const getAllTechnical = () => {
 };
 
 export const getFeaturedProjects = () => {
-  return allProjects.filter((p) => p?.featured === true);
+  return allProjects;
+};
+
+export const getFeaturedBlogs = () => {
+  return allBlogs.filter((p) => p?.featured === true);
+};
+
+export const urlType = (url: string) => {
+  if (['/'].includes(url[0])) {
+    return 'internal';
+  }
+
+  if (['#'].includes(url[0])) {
+    return 'hash';
+  }
+
+  if (url.indexOf('mailto') === 0) {
+    return 'mail';
+  }
+
+  return 'external';
+};
+
+export const formatLang = (
+  lang: string,
+  title?: string
+): {
+  language: string;
+  icon: ReactElement;
+} => {
+  let language = lang;
+  let icon = <File />;
+
+  switch (lang) {
+    case 'js':
+    case 'javascript':
+      language = 'JavaScript';
+      icon = <SiJavascript />;
+      break;
+    case 'ts':
+    case 'typescript':
+      language = 'TypeScript';
+      icon = <SiTypescript />;
+      break;
+    case 'jsx':
+      language = 'JavaScript React';
+      icon = <SiReact />;
+      break;
+    case 'tsx':
+      language = 'TypeScript React';
+      icon = <SiTypescript />;
+      break;
+    case 'html':
+      language = 'HTML';
+      icon = <SiHtml5 />;
+      break;
+    case 'css':
+      language = 'CSS';
+      icon = <SiCss3 />;
+      break;
+    case 'bash':
+    case 'cmd':
+      language = 'Terminal';
+      break;
+    case 'json':
+      language = 'JSON';
+      break;
+    case '':
+      language = 'Plain Text';
+      break;
+    default:
+      break;
+  }
+
+  switch (title) {
+    case 'tailwind.config.js':
+      icon = <SiTailwindcss />;
+      break;
+    case 'package.json':
+      icon = <SiWebpack />;
+      break;
+    case 'npm':
+      icon = <SiNpm />;
+      break;
+    case 'pnpm':
+      icon = <SiPnpm />;
+      break;
+    case 'yarn':
+      icon = <SiYarn />;
+      break;
+    default:
+      break;
+  }
+
+  return { language, icon };
 };
