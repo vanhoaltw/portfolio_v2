@@ -47,10 +47,10 @@ const ProjectDetail = ({ params }: Props) => {
         width={1440}
         height={600}
         publicId={post?.banner}
-        className='rounded-2xl'
+        className='rounded-md hover:opacity-80'
       />
 
-      <h1 className='text-4xl font-bold'>{post?.title}</h1>
+      <h1 className='font-bold'>{post?.title}</h1>
       <p>{post?.description}</p>
 
       {post?.category && (

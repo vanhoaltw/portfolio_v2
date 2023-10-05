@@ -64,9 +64,9 @@ const IconLink = React.forwardRef<HTMLAnchorElement, IconLinkProps>(
                 'hover:bg-gray-900 active:bg-gray-800 disabled:bg-gray-800',
             ],
             variant === 'ghost' && [
-              'text-primary-500',
+              'dark:text-slate-200',
               'shadow-none',
-              'hover:bg-primary-50 active:bg-primary-100 disabled:bg-primary-100',
+              'disabled:bg-primary-100 hover:bg-slate-100 active:bg-slate-100 dark:hover:bg-slate-800',
               isDarkBg &&
                 'hover:bg-gray-900 active:bg-gray-800 disabled:bg-gray-800',
             ],

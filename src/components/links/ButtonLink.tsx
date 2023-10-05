@@ -35,7 +35,7 @@ const ButtonLink = React.forwardRef<HTMLAnchorElement, ButtonLinkProps>(
       children,
       className,
       variant = 'primary',
-      size = 'sm',
+      size = 'base',
       isDarkBg = false,
       leftIcon: LeftIcon,
       rightIcon: RightIcon,
@@ -55,18 +55,17 @@ const ButtonLink = React.forwardRef<HTMLAnchorElement, ButtonLinkProps>(
           'transform-gpu transition-all duration-75',
           //#region  //*=========== Size ===========
           [
-            size === 'base' && ['px-3 py-1.5', 'text-sm md:text-base'],
+            size === 'base' && ['px-3 py-2', 'text-xs md:text-sm'],
             size === 'sm' && ['px-2 py-1', 'text-xs md:text-sm'],
           ],
           //#endregion  //*======== Size ===========
           //#region  //*=========== Variants ===========
           [
             variant === 'primary' && [
-              'bg-slate-500 text-white',
-              'border-primary-600 border',
-              'hover:bg-primary-600 hover:text-white',
-              'active:bg-primary-700',
-              'disabled:bg-primary-700',
+              'bg-primary text-white',
+              'hover:bg-primary/80',
+              'active:bg-primary',
+              'disabled:bg-primary/60',
             ],
             variant === 'outline' && [
               'text-primary-500',

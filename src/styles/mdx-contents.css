@@ -72,6 +72,20 @@
 .mdx hr {
   margin: 2rem 10px;
 }
+
+.mdx .dot-divider {
+  display: inline-block;
+  margin: 0 0.5rem;
+  font-size: 12px;
+}
+
+.mdx figure {
+  @apply rounded-md transition-opacity hover:opacity-80;
+}
+
+.mdx .link {
+  @apply text-primary border-b border-dotted pb-0.5 leading-7 hover:border-solid;
+}
 /* 
 ul,
 ol {

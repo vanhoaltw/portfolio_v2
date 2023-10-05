@@ -28,7 +28,6 @@ const IconButton = React.forwardRef<HTMLButtonElement, IconButtonProps>(
       disabled: buttonDisabled,
       isLoading,
       variant = 'primary',
-      isDarkBg = false,
       children,
       ...rest
     },
@@ -62,11 +61,9 @@ const IconButton = React.forwardRef<HTMLButtonElement, IconButtonProps>(
               'dark:hover:bg-slate-900 dark:active:bg-slate-800 dark:disabled:bg-slate-800',
             ],
             variant === 'ghost' && [
-              'text-primary-500',
+              'dark:text-slate-200',
               'shadow-none',
-              'hover:bg-primary-50 active:bg-primary-100 disabled:bg-primary-100',
-              isDarkBg &&
-                'hover:bg-gray-900 active:bg-gray-800 disabled:bg-gray-800',
+              'hover:bg-slate-100 active:bg-slate-100 disabled:bg-slate-100 dark:hover:bg-slate-800',
             ],
             variant === 'light' && [
               'bg-white text-gray-700',

@@ -1,8 +1,12 @@
 import { usePathname } from 'next/navigation';
+import { RiGithubFill } from 'react-icons/ri';
 
+import IconButton from '@/components/buttons/IconButton';
 import ToggleTheme from '@/components/layouts/Header/ToggleTheme';
 import PrimaryLink from '@/components/links/PrimaryLink';
+import UnstyledLink from '@/components/links/UnstyledLink';
 
+import { siteConfig } from '@/constant/config';
 import { NAVS_MAIN } from '@/constant/navs';
 
 export default function DesktopMenu() {
@@ -27,7 +31,12 @@ export default function DesktopMenu() {
         );
       })}
 
-      <div className='flex grow items-center justify-end gap-4'>
+      <div className='flex grow items-center justify-end gap-2'>
+        <UnstyledLink href={siteConfig.githubUrl}>
+          <IconButton variant='ghost'>
+            <RiGithubFill size={22} />
+          </IconButton>
+        </UnstyledLink>
         <ToggleTheme />
       </div>
     </nav>

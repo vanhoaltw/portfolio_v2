@@ -24,7 +24,7 @@ export default function AboutPage() {
         >
           About me
         </m.h1>
-        <div className='grid gap-12 md:grid-cols-2'>
+        <div className='gap-12 space-y-4 sm:flex'>
           <m.ul
             initial='hide'
             animate='show'
@@ -59,7 +59,7 @@ export default function AboutPage() {
               <div
                 ref={ref}
                 style={{ transform: 'rotate3d(0)' }}
-                className='hover:shadow-[0 5px 20px 5px #00000044] mx-auto max-w-[250px] transform-gpu overflow-hidden rounded-md transition-all duration-75 sm:max-w-[350px]'
+                className='hover:shadow-[0 5px 20px 5px #00000044] mx-auto max-w-[200px] transform-gpu overflow-hidden rounded-md transition-all duration-75 sm:max-w-[280px]'
               >
                 <ClImage
                   publicId='v1694705834/z4307307354915_ecf9978fe47a8defeb7affcbbb4a5315_2_grxy5z.jpg'

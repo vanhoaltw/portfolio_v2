@@ -7,7 +7,7 @@ const Logo = ({ size = 30 }) => {
   return (
     <PrimaryLink
       href='/'
-      className='flex items-center text-xl text-sky-400 transition-opacity hover:opacity-60'
+      className='z-50 flex items-center text-xl text-sky-400 transition-opacity hover:opacity-60'
     >
       <NextImage
         src='/logo.png'

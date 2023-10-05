@@ -27,7 +27,7 @@ export function Link({ children, href }: Props) {
           className={cn('link')}
         >
           {children}
-          <ExternalLink />
+          <ExternalLink size={14} className='inline-block' />
         </a>
       );
     case 'mail':

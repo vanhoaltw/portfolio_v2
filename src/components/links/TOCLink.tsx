@@ -21,15 +21,17 @@ export default function TOCLink({
   return (
     <UnstyledLink
       href={`#${id}`}
+      nextLinkProps={{ shallow: true }}
       id={`link-${id}`}
       className={cn(
-        'hover:text-slate-700 focus:outline-none dark:hover:text-slate-200',
+        'transition-colors hover:text-slate-700 focus:outline-none dark:hover:text-slate-200',
         'focus-visible:text-slate-700 dark:focus-visible:text-slate-200',
+        'px-4 py-2',
         activeSection === id
-          ? 'text-slate-900 dark:text-slate-100'
+          ? 'bg-slate-100 text-slate-900 dark:bg-slate-800 dark:text-white'
           : 'text-slate-400 dark:text-slate-500'
       )}
-      style={{ marginLeft: (level - 2) * 16 }}
+      style={{ paddingLeft: (level - 1) * 16 }}
     >
       {text}
     </UnstyledLink>

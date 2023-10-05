@@ -22,7 +22,7 @@ export function H2({ children, id: slug }: Props) {
       <a
         href={`#${slug}`}
         className={cn(
-          'mdx-heading__anchor text-sky-400 opacity-0 group-hover:opacity-100 dark:text-sky-300'
+          'mdx-heading__anchor text-primary opacity-0 group-hover:opacity-100 '
         )}
         aria-labelledby={slug}
         title={`Link to ${children}`}
@@ -47,7 +47,7 @@ export function H3({ children, id: slug }: Props) {
       <a
         href={`#${slug}`}
         className={cn(
-          'mdx-heading__anchor text-sky-300 opacity-0 group-hover:opacity-100'
+          'mdx-heading__anchor text-primary opacity-0 group-hover:opacity-100'
         )}
         aria-labelledby={slug}
       >

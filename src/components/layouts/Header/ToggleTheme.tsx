@@ -1,6 +1,7 @@
-import { MoonIcon, SunIcon } from 'lucide-react';
+import { SunIcon } from 'lucide-react';
 import { useTheme } from 'next-themes';
 import React from 'react';
+import { RxMoon } from 'react-icons/rx';
 
 import IconButton from '@/components/buttons/IconButton';
 import {
@@ -15,14 +16,14 @@ const ToggleTheme = () => {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <IconButton variant='outline'>
+        <IconButton variant='ghost'>
           <SunIcon
             className='rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0'
-            size={20}
+            size={18}
           />
-          <MoonIcon
+          <RxMoon
             className='absolute rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100'
-            size={20}
+            size={18}
           />
 
           <span className='sr-only'>Toggle theme</span>

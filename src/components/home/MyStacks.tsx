@@ -28,7 +28,7 @@ const MyStacks = () => {
         initial={animationFade.hide}
         animate={animationFade.show}
         transition={{ delay: 0.6 }}
-        className='text-lg'
+        className='h4'
       >
         Current Favorite Tech Stack/Tool
       </m.p>
@@ -36,7 +36,7 @@ const MyStacks = () => {
         initial='hide'
         animate='show'
         transition={{ delayChildren: 0.6, staggerChildren: 0.025 }}
-        className='mt-2 flex items-center gap-2 text-3xl'
+        className='mt-2 flex items-center gap-2 text-2xl sm:text-3xl'
       >
         {stacks.map((i) => (
           <m.li variants={animationFade} key={i.title} title={i.title}>

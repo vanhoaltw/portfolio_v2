@@ -8,7 +8,6 @@ import Image from 'next/image';
 import ClImage from '@/components/ClImage';
 import MyStacks from '@/components/home/MyStacks';
 import ButtonLink from '@/components/links/ButtonLink';
-import { Button } from '@/components/ui/Button';
 
 import { animationFade } from '@/constant/animation';
 
@@ -77,7 +76,7 @@ const HeroSection = () => {
               transition={{ delay: 0.5 }}
               className='mt-6 flex gap-2'
             >
-              <Button size='lg'>Get in touch</Button>
+              <ButtonLink href='/about'>Get in touch</ButtonLink>
               <ButtonLink
                 variant='outline'
                 className='px-6'
@@ -96,7 +95,7 @@ const HeroSection = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.6 }}
-            className='relative h-80 w-80 overflow-hidden rounded-full bg-slate-50 shadow-sm'
+            className='relative aspect-square w-60 max-w-[350px] overflow-hidden rounded-full bg-slate-50 shadow-sm sm:w-full'
           >
             <ClImage
               publicId='v1694705834/z4307307354915_ecf9978fe47a8defeb7affcbbb4a5315_2_grxy5z.jpg'

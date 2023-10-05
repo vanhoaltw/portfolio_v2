@@ -90,7 +90,7 @@ export default {
         },
       },
       gridTemplateColumns: {
-        project: 'repeat(auto-fill, minmax(300px, 1fr))',
+        project: 'repeat(auto-fill, minmax(260px, 1fr))',
       },
       animation: {
         flicker: 'flicker 3s linear infinite',
