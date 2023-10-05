@@ -18,7 +18,7 @@ const fontSans = Plus_Jakarta_Sans({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL(process.env.VERCEL_URL || 'http://localhost:3000/'),
+  metadataBase: new URL(siteConfig.url),
   title: {
     default: siteConfig.title,
     template: `%s | ${siteConfig.title}`,
@@ -36,7 +36,7 @@ export const metadata: Metadata = {
     title: siteConfig.title,
     description: siteConfig.description,
     siteName: siteConfig.title,
-    images: [`/images/og.png`],
+    images: [`${siteConfig.url}/images/og.png`],
     type: 'website',
     locale: 'en_US',
   },

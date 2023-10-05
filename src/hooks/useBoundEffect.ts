@@ -1,6 +1,6 @@
 import { RefObject, useEffect, useRef } from 'react';
 
-function useBoundEffect(): {
+function useBoundEffect(use3d?: boolean): {
   ref: RefObject<HTMLDivElement>;
   glowRef: RefObject<HTMLDivElement>;
 } {
@@ -20,6 +20,19 @@ function useBoundEffect(): {
       y: topY - bounds.height / 2,
     };
 
+    if (use3d) {
+      const distance = Math.sqrt(center.x ** 2 + center.y ** 2);
+      ref.current.style.transform = `
+      scale3d(1.07, 1.07, 1.07)
+      rotate3d(
+        ${center.y / 100},
+        ${-center.x / 100},
+        0,
+        ${Math.log(distance) * 2}deg
+      )
+    `;
+    }
+
     glowRef.current.style.backgroundImage = `
       radial-gradient(
         circle at
@@ -34,6 +47,8 @@ function useBoundEffect(): {
   const removeListener = () => {
     if (!ref.current || !glowRef.current) return;
     glowRef.current.style.backgroundImage = '';
+    ref.current.style.transform = '';
+    ref.current.style.background = '';
   };
 
   useEffect(() => {

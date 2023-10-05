@@ -3,6 +3,8 @@
 import { m } from 'framer-motion';
 import { Mail } from 'lucide-react';
 
+import { useBoundEffect } from '@/hooks/useBoundEffect';
+
 import Experience from '@/components/about/Experience';
 import ClImage from '@/components/ClImage';
 import MyStacks from '@/components/home/MyStacks';
@@ -11,6 +13,7 @@ import PrimaryLink from '@/components/links/PrimaryLink';
 import { animationFade } from '@/constant/animation';
 
 export default function AboutPage() {
+  const { ref, glowRef } = useBoundEffect(true);
   return (
     <main className='container mt-10 space-y-20'>
       <section>
@@ -49,13 +52,26 @@ export default function AboutPage() {
             <MyStacks />
           </m.ul>
           <div className='flex w-full justify-center'>
-            <div className='w-full max-w-[350px] shrink-0 overflow-hidden rounded-md'>
-              <ClImage
-                publicId='v1694705834/z4307307354915_ecf9978fe47a8defeb7affcbbb4a5315_2_grxy5z.jpg'
-                height={600}
-                width={450}
-                alt='Me'
-              />
+            <div
+              className='relative h-fit w-full shrink-0 rounded-md'
+              style={{ perspective: 700 }}
+            >
+              <div
+                ref={ref}
+                style={{ transform: 'rotate3d(0)' }}
+                className='hover:shadow-[0 5px 20px 5px #00000044] mx-auto max-w-[250px] transform-gpu overflow-hidden rounded-md transition-all duration-75 sm:max-w-[350px]'
+              >
+                <ClImage
+                  publicId='v1694705834/z4307307354915_ecf9978fe47a8defeb7affcbbb4a5315_2_grxy5z.jpg'
+                  height={600}
+                  width={450}
+                  alt='Me'
+                />
+                <div
+                  ref={glowRef}
+                  className='absolute left-0 top-0 z-0 h-full w-full rounded-lg'
+                />
+              </div>
             </div>
           </div>
         </div>
