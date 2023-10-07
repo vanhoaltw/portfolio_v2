@@ -1,3 +1,4 @@
+import { Analytics } from '@vercel/analytics/react';
 import { Metadata } from 'next';
 import { Plus_Jakarta_Sans } from 'next/font/google';
 import NextTopLoader from 'nextjs-toploader';
@@ -79,6 +80,7 @@ export default function RootLayout({ children }: RootProps) {
             <Header />
             <div style={{ minHeight: 'calc(100vh - 370px)' }}>{children}</div>
             <Footer />
+            <Analytics />
           </RootProvider>
         </main>
       </body>
