@@ -1,9 +1,10 @@
 import { usePathname } from 'next/navigation';
 import { RiGithubFill } from 'react-icons/ri';
 
+import { cn } from '@/lib/utils';
+
 import IconButton from '@/components/buttons/IconButton';
 import ToggleTheme from '@/components/layouts/Header/ToggleTheme';
-import PrimaryLink from '@/components/links/PrimaryLink';
 import UnstyledLink from '@/components/links/UnstyledLink';
 
 import { siteConfig } from '@/constant/config';
@@ -12,21 +13,23 @@ import { NAVS_MAIN } from '@/constant/navs';
 export default function DesktopMenu() {
   const pathname = usePathname();
   return (
-    <nav className='hidden w-full flex-1 items-center gap-6 text-sm md:flex'>
+    <nav className='hidden w-full flex-1 items-center text-sm md:flex'>
       {NAVS_MAIN.map((nav, idx) => {
         const isActive = pathname?.substring(1) === nav.url?.substring(1);
         return (
           <div key={`${nav.name}-${idx}`}>
-            <PrimaryLink
-              href={nav.url}
-              className='group relative mt-1 h-5 overflow-hidden font-semibold dark:text-slate-300'
-            >
-              <div>
-                <div className={isActive ? 'text-sky-400' : 'hover:opacity-60'}>
-                  {nav.name}
-                </div>
-              </div>
-            </PrimaryLink>
+            <UnstyledLink href={isActive ? '' : nav.url}>
+              <span
+                className={cn(
+                  'inline-block rounded-md p-1.5 px-3 font-semibold transition-colors',
+                  isActive
+                    ? 'cursor-default text-sky-500 dark:text-blue-400'
+                    : 'text-slate-600 hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-slate-800'
+                )}
+              >
+                {nav.name}
+              </span>
+            </UnstyledLink>
           </div>
         );
       })}

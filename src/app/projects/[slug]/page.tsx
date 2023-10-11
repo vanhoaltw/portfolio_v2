@@ -1,7 +1,6 @@
 /* eslint-disable react-hooks/rules-of-hooks */
 import { allProjects } from 'contentlayer/generated';
 import { User } from 'lucide-react';
-import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { BiTime } from 'react-icons/bi';
 import { GrGithub } from 'react-icons/gr';
@@ -10,6 +9,7 @@ import { RiGlobalLine } from 'react-icons/ri';
 import ClImage from '@/components/ClImage';
 import UnderlineLink from '@/components/links/UnderlineLink';
 import Mdx from '@/components/mdx';
+import MoreProject from '@/components/projects/MoreProject';
 import TableOfContent from '@/components/TableOfContent';
 
 interface Props {
@@ -42,48 +42,40 @@ const ProjectDetail = ({ params }: Props) => {
   if (!post) return notFound();
 
   return (
-    <div className='container mt-10 space-y-4'>
+    <div className='container mt-10'>
       <ClImage
         width={1440}
         height={600}
         publicId={post?.banner}
-        className='rounded-md hover:opacity-80'
+        className='mb-6 rounded-md hover:opacity-80'
       />
 
-      <h1 className='font-bold'>{post?.title}</h1>
-      <p>{post?.description}</p>
+      <h1 className='mb-4 font-bold'>{post?.title}</h1>
+      <p className='mb-4'>{post?.description}</p>
 
       {post?.category && (
-        <p className='flex items-center gap-1 text-sm'>
+        <p className='mb-6 flex items-center gap-1 text-sm'>
           <User size={15} /> {post.category}
         </p>
       )}
-      <div className='flex items-start gap-4  text-sm'>
+      <div className='mb-6 flex items-start  gap-4 text-sm'>
         <p className='flex items-center gap-1'>
           <BiTime /> {post?.readTime || 1} minutes to read
         </p>
         {post.github && (
-          <Link
-            href={post.github}
-            target='_blank'
-            className='flex items-center gap-1 text-white hover:underline'
-          >
+          <UnderlineLink href={post.github} className='flex items-center gap-1'>
             <GrGithub /> Repository
-          </Link>
+          </UnderlineLink>
         )}
 
         {post?.link && (
-          <UnderlineLink
-            href={post.link}
-            target='_blank'
-            className='flex items-center gap-1 text-white'
-          >
+          <UnderlineLink href={post.link} className='flex items-center gap-1'>
             <RiGlobalLine /> Live demo
           </UnderlineLink>
         )}
       </div>
 
-      <hr className='border-slate-400/20' />
+      <hr className='my-10 border-slate-400/20' />
 
       <section className='lg:grid lg:grid-cols-[auto,250px] lg:gap-8'>
         <article className='mdx projects prose dark:prose-invert mx-auto w-full transition-colors'>
@@ -96,6 +88,13 @@ const ProjectDetail = ({ params }: Props) => {
             <TableOfContent />
           </div>
         </aside>
+      </section>
+
+      <hr className='mb-8 mt-14' />
+
+      <section>
+        <h3 className='mb-4'>See more</h3>
+        <MoreProject />
       </section>
     </div>
   );

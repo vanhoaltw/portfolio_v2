@@ -1,9 +1,10 @@
 import { ExternalLink, MailIcon } from 'lucide-react';
-import NextLink from 'next/link';
 import type { AnchorHTMLAttributes, DetailedHTMLProps } from 'react';
 
 import { urlType } from '@/lib/mdx';
 import { cn } from '@/lib/utils';
+
+import UnderlineLink from '@/components/links/UnderlineLink';
 
 type Props = DetailedHTMLProps<
   AnchorHTMLAttributes<HTMLAnchorElement>,
@@ -11,43 +12,36 @@ type Props = DetailedHTMLProps<
 >;
 
 export function Link({ children, href }: Props) {
-  if (!href) {
-    return <span>{children}</span>;
-  }
+  if (!href) return children;
 
   const type = urlType(href);
 
   switch (type) {
     case 'external':
       return (
-        <a
-          href={href}
-          target='_blank'
-          rel='noreferrer nofollow'
-          className={cn('link')}
-        >
+        <UnderlineLink href={href} className={cn('link')}>
           {children}
           <ExternalLink size={14} className='inline-block' />
-        </a>
+        </UnderlineLink>
       );
     case 'mail':
       return (
-        <a href={href} className={cn('link')}>
+        <UnderlineLink href={href} className={cn('link')}>
           <MailIcon />
           {children}
-        </a>
+        </UnderlineLink>
       );
     case 'hash':
       return (
-        <a href={href} className={cn('link')}>
+        <UnderlineLink href={href} className={cn('link')}>
           {children}
-        </a>
+        </UnderlineLink>
       );
     default:
       return (
-        <NextLink href={href} className={cn('link')}>
+        <UnderlineLink href={href} className={cn('link')}>
           {children}
-        </NextLink>
+        </UnderlineLink>
       );
   }
 }

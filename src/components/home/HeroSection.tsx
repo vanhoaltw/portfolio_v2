@@ -15,10 +15,10 @@ const HeroSection = () => {
   const controls = useAnimationControls();
 
   return (
-    <section className='container flex flex-col justify-center py-10 pb-16 sm:py-32'>
+    <section className='flex flex-col justify-center'>
       <div className='flex flex-col-reverse flex-wrap items-center justify-between gap-6 md:flex-row md:flex-nowrap'>
-        <div>
-          <div className='relative mb-16 max-w-2xl'>
+        <div className='flex-1'>
+          <div className='relative mb-16'>
             <m.div
               initial={animationFade.hide}
               animate={animationFade.show}
@@ -101,6 +101,7 @@ const HeroSection = () => {
               publicId='v1694705834/z4307307354915_ecf9978fe47a8defeb7affcbbb4a5315_2_grxy5z.jpg'
               height={800}
               width={400}
+              preview={false}
               alt='Me'
             />
           </m.div>

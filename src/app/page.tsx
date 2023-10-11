@@ -1,14 +1,18 @@
 /* eslint-disable @next/next/no-img-element */
 
+import { ArrowRight, Quote } from 'lucide-react';
+import Link from 'next/link';
+
 import { getFeaturedProjects } from '@/lib/mdx';
 
-import Analysis from '@/components/home/Analysis';
 import HeroSection from '@/components/home/HeroSection';
+import Process from '@/components/home/Process';
 import Quotes from '@/components/home/Quotes';
 import CardProject from '@/components/projects/CardProject';
+import { Button } from '@/components/ui/Button';
 
 export default async function HomePage() {
-  const featuredProject = getFeaturedProjects();
+  const featuredProject = getFeaturedProjects().slice(0, 3);
 
   return (
     <main className='relative'>
@@ -30,14 +34,34 @@ export default async function HomePage() {
             />
           </div>
 
-          <HeroSection />
+          <div className='container mx-auto space-y-8 py-10 sm:space-y-16 sm:py-32'>
+            <HeroSection />
+            <Process />
+          </div>
         </div>
 
-        <section className='container pb-16'>
-          <Analysis />
+        <section className='container flex justify-center pb-16 sm:pb-32'>
+          <div className='flex gap-4 text-xl text-slate-500 sm:text-2xl md:text-4xl'>
+            <Quote className='hidden text-2xl text-slate-700/80 sm:inline-block' />
+            <div className='space-y-2.5'>
+              <i>Living</i>
+              <div className='flex items-center gap-2'>
+                <span className='inline-block h-0.5 w-6 rounded-xl bg-current' />
+                <strong className='dark:text-slate-300'>learning</strong> &{' '}
+                <strong className='dark:text-slate-300'>leveling up</strong>
+                <span className='inline-block h-0.5 w-6 rounded-xl bg-current' />
+              </div>
+              <div>
+                one day{' '}
+                <strong className='inline-block rounded-md bg-slate-200 p-2 py-0.5 leading-none dark:bg-slate-800 dark:text-slate-300'>
+                  at a time
+                </strong>
+              </div>
+            </div>
+          </div>
         </section>
 
-        <section className='flex justify-center pb-16'>
+        <section className='container pb-32'>
           <Quotes />
         </section>
 
@@ -65,14 +89,11 @@ export default async function HomePage() {
             ))}
           </div>
 
-          {/* <Link href='/projects'>
-            <Button
-              variant='outline'
-              className='mx-auto mt-4 gap-2 transition-all hover:scale-100 hover:gap-4 hover:bg-slate-900'
-            >
+          <Link href='/projects'>
+            <Button variant='outline' className='mt-4'>
               See more projects <ArrowRight size={16} />
             </Button>
-          </Link> */}
+          </Link>
         </section>
 
         {/* <section className='container'>

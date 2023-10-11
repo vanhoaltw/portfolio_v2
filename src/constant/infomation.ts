@@ -32,7 +32,7 @@ export const EXPERIENCES = [
   },
   {
     id: 'fiahub',
-    date: '01/2023 - 01/2023',
+    date: '01/2023 - 02/2023',
     title: 'Fiahub',
     url: 'https://www.fiahub.com',
     logoUrl:
@@ -47,30 +47,9 @@ export const EXPERIENCES = [
     ],
     achives: ['Nextjs', 'ChartJS', 'Mantine', 'Tanstack Query'],
   },
-  // {
-  //   id: 'freelance',
-  //   date: '08/2022 - 12/2023',
-  //   title: 'Freelance',
-  //   major: 'Front-end Developer',
-  //   tasks: ['https://ttdk.com.vn/'],
-  //   logoUrl:
-  //     'https://www.samayo.org/wp-content/uploads/2020/11/Samayo.org-Blog-Web-Design-SEO-creazione-siti-web-blog-e-commerce-Ayouni-Housam-102-1024x1024.png',
-  //   desciprtion:
-  //     'Worked as part of a multi-disciplinary team, carrying out ad-hoc tasks as requested by the IT Manager. Had a specic brief to ensure the websites build for customer’s precisely matched their requirements.',
-  //   achives: [
-  //     'Nextjs',
-  //     'Reactjs',
-  //     'Sass',
-  //     'Typescript',
-  //     'Antd',
-  //     'ChartJS',
-  //     'Redux',
-  //     'Firebase',
-  //   ],
-  // },
   {
     id: 'fihome',
-    date: '12/2021 - 01/2022',
+    date: '12/2021 - 02/2022',
     title: 'Fihome',
     url: 'https://fihome.vn',
     logoUrl:
@@ -87,7 +66,7 @@ export const EXPERIENCES = [
   },
   {
     id: 'hodace',
-    date: '10/2021 - 12/2022',
+    date: '10/2021 - 12/2021',
     title: 'HODACE NETWORK',
     url: 'https://hodace.network',
     logoUrl:

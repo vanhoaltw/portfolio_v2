@@ -1,62 +1,52 @@
 /* eslint-disable @next/next/no-img-element */
-'use client';
 
-import { Dot } from 'lucide-react';
-import React, { useMemo, useState } from 'react';
+import { Link } from 'lucide-react';
 
-import { cn } from '@/lib/utils';
-
-import UnderlineLink from '@/components/links/UnderlineLink';
+import PrimaryLink from '@/components/links/PrimaryLink';
+import { Button } from '@/components/ui/Button';
 
 import { EXPERIENCES } from '@/constant/infomation';
 
 const Experience = () => {
-  const [current, setCurrent] = useState(0);
-
-  const currentData = useMemo(() => EXPERIENCES[current], [current]);
-
   return (
-    <div className='grid gap-4 md:grid-cols-[150px,_1fr]'>
-      <ul className='flex md:block'>
+    <div>
+      <ol className='relative ml-4 border-l border-gray-200 dark:border-gray-700'>
         {EXPERIENCES.map((i, idx) => (
-          <li
-            key={i.id}
-            onClick={() => setCurrent(idx)}
-            className={cn(
-              'block h-10 cursor-pointer border-t px-4 font-semibold capitalize leading-10 transition-colors md:border-l-2 md:border-t-0',
-              idx === current && 'border-current bg-sky-400/10 text-sky-400'
+          <li key={i.id} className='mb-10 ml-10'>
+            <span className='absolute -left-4 flex items-center justify-center overflow-hidden rounded-full bg-blue-100 ring-8 ring-white dark:bg-blue-900 dark:ring-gray-900'>
+              <img height={30} width={30} alt={i.title} src={i.logoUrl} />
+            </span>
+            <h3 className='mb-2 flex items-center text-lg font-bold'>
+              {i.title}
+              {idx === 0 && (
+                <span className='ml-3 mr-2 rounded bg-blue-100 px-2.5 py-0.5 text-sm font-medium text-blue-800 dark:bg-blue-900 dark:text-blue-300'>
+                  Latest
+                </span>
+              )}
+            </h3>
+            <time className='mb-3 block text-sm leading-none text-slate-400 dark:text-slate-500'>
+              {i.date}
+            </time>
+
+            <div className='space-y-1 text-slate-500 dark:text-slate-400'>
+              {i?.tasks.map((task) => (
+                <div key={task} className='flex gap-3'>
+                  <span className='mt-2 inline-block h-2.5 w-2.5 shrink-0 rounded-[3px] bg-slate-400 dark:bg-slate-300' />
+                  <p>{task}</p>
+                </div>
+              ))}
+            </div>
+
+            {i.url && (
+              <PrimaryLink href={i.url} className='mt-4'>
+                <Button variant='outline'>
+                  <Link size={14} /> See more
+                </Button>
+              </PrimaryLink>
             )}
-          >
-            {i.id}
           </li>
         ))}
-      </ul>
-      <div>
-        <img
-          src={currentData?.logoUrl}
-          height={50}
-          width={50}
-          className='mb-2'
-          alt={`${currentData?.title}`}
-        />
-
-        <h4>{currentData.title}</h4>
-        <p className='text-sm text-gray-400'>{currentData.date}</p>
-        <UnderlineLink
-          href={`${currentData.url}`}
-          className='font-mono text-sm text-sky-400'
-        >
-          {currentData.url}
-        </UnderlineLink>
-        <ul className='my-4'>
-          {currentData.tasks.map((task) => (
-            <li key={task} className='flex gap-1.5'>
-              <Dot className='mt-1 text-sky-400' size={16} />
-              {task}
-            </li>
-          ))}
-        </ul>
-      </div>
+      </ol>
     </div>
   );
 };

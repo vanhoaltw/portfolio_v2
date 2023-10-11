@@ -15,7 +15,7 @@ export default function ProjectsPage() {
         description='Showcase of my front-end related work'
       />
 
-      <ul className='mt-6 grid grid-cols-[repeat(auto-fill,minmax(300px,_1fr))] gap-4'>
+      <ul className='grid-cols-project mt-6 grid gap-4'>
         {allProjects.map((project) => (
           <CardProject key={project._id} data={project} />
         ))}

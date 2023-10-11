@@ -7,8 +7,10 @@ export const siteConfig = {
   url: isProd ? 'https://hoanguyen.dev' : 'http://localhost:3000',
   author: 'Hoà Nguyễn',
   authorUrl: 'https://github.com/',
-  linkedUrl: 'https://www.linkedin.com/in/vanhoaltw',
-  instagramUrl: 'https://www.instagram.com/aristino.0.1',
+  linkedUrl: 'https://linkedin.com/in/vanhoaltw',
+  instagramUrl: 'https://instagram.com/aristino.0.1',
   gmail: 'vanhoatlw@gmail.com',
   githubUrl: 'https://github.com/vanhoaltw',
+  facebookUrl: 'https://facebook.com/vanhoaltw',
+  twitterUrl: 'https://twitter.com/NguynVanhoaltw',
 };

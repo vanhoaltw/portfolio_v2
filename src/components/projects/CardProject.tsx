@@ -1,6 +1,7 @@
 'use client';
 
 import { Project } from 'contentlayer/generated';
+import { format } from 'date-fns';
 import { RiGlobalLine } from 'react-icons/ri';
 import { SiGithub } from 'react-icons/si';
 
@@ -25,13 +26,19 @@ const CardProject = ({ data }: Props) => {
           'group transform-gpu select-none overflow-hidden rounded-xl border shadow-sm transition-all hover:scale-105 active:scale-100'
         )}
       >
-        <ClImage
-          width={1440}
-          height={700}
-          publicId={data?.banner}
-          preview={false}
-          className='z-10 cursor-pointer select-none'
-        />
+        <div className='relative'>
+          <ClImage
+            width={1440}
+            height={700}
+            publicId={data?.banner}
+            preview={false}
+            className='z-10 cursor-pointer select-none'
+          />
+
+          <div className='absolute left-2 top-2 z-20 rounded-md bg-black/60 p-1 px-2 text-xs text-white'>
+            {format(new Date(data.publishedAt), 'dd/MM/yyyy')}
+          </div>
+        </div>
 
         <div
           ref={glowRef}

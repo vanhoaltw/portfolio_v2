@@ -5,6 +5,7 @@ import NextTopLoader from 'nextjs-toploader';
 import * as React from 'react';
 
 import '@/styles/globals.css';
+import 'keen-slider/keen-slider.min.css';
 
 import Footer from '@/components/layouts/Footer';
 import Header from '@/components/layouts/Header';

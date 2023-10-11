@@ -21,7 +21,7 @@ export default function MobileMenu({
         opened && 'block opacity-100'
       )}
     >
-      <div className='flex h-screen flex-col items-end bg-slate-900 p-4 px-8'>
+      <div className='flex h-screen flex-col items-end bg-white p-4 px-8 dark:bg-slate-900'>
         {opened && (
           <m.ul
             initial='hide'
@@ -33,12 +33,14 @@ export default function MobileMenu({
               <m.li key={`${nav.name}-${idx}`} variants={animationFade}>
                 <PrimaryLink
                   href={nav.url}
-                  className='flex flex-col gap-1.5'
+                  className='flex flex-col gap-1.5 text-black dark:text-white'
                   onClick={onClose}
                 >
-                  <p>{idx < 10 ? `0${idx + 1}` : idx}.</p>
+                  <p className='opacity-80'>
+                    {idx < 10 ? `0${idx + 1}` : idx}.
+                  </p>
 
-                  <p className='hover:text-primary text-base text-white duration-300 hover:cursor-pointer'>
+                  <p className='hover:text-primary text-base  duration-300 hover:cursor-pointer '>
                     {nav.name}
                   </p>
                 </PrimaryLink>
@@ -46,23 +48,6 @@ export default function MobileMenu({
             ))}
           </m.ul>
         )}
-        {/* <nav className='flex w-full flex-1 flex-col items-center justify-center gap-12'>
-          {NAVS_MAIN.map((nav, idx) => (
-            <div key={`${nav.name}-${idx}`}>
-              <PrimaryLink
-                href={nav.url}
-                className='flex flex-col gap-1.5'
-                onClick={onClose}
-              >
-                <p>{idx < 10 ? `0${idx + 1}` : idx}.</p>
-
-                <p className='hover:text-primary text-base text-white duration-300 hover:cursor-pointer'>
-                  {nav.name}
-                </p>
-              </PrimaryLink>
-            </div>
-          ))}
-        </nav> */}
       </div>
     </div>
   );

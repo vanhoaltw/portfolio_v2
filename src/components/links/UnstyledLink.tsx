@@ -5,7 +5,7 @@ import { cn } from '@/lib/utils';
 
 export type UnstyledLinkProps = {
   href: string;
-  children: React.ReactNode;
+  children: any;
   openNewTab?: boolean;
   className?: string;
   nextLinkProps?: Omit<LinkProps, 'href'>;
@@ -13,6 +13,8 @@ export type UnstyledLinkProps = {
 
 const UnstyledLink = React.forwardRef<HTMLAnchorElement, UnstyledLinkProps>(
   ({ children, href, openNewTab, className, nextLinkProps, ...rest }, ref) => {
+    if (!href) return children;
+
     const isNewTab =
       openNewTab !== undefined
         ? openNewTab

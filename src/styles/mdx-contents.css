@@ -84,7 +84,7 @@
 }
 
 .mdx .link {
-  @apply text-primary border-b border-dotted pb-0.5 leading-7 hover:border-solid;
+  @apply inline-flex items-center gap-1;
 }
 /* 
 ul,

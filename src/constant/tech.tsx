@@ -13,6 +13,7 @@ import {
   SiAgora,
   SiAntdesign,
   SiAxios,
+  SiChartdotjs,
   SiFirebase,
   SiMaterialdesign,
   SiNuxtdotjs,
@@ -32,6 +33,11 @@ export const technicals: any = {
     icon: <GrReactjs />,
     title: 'Reactjs',
     color: 'hover:text-sky-400',
+  },
+  chartJs: {
+    icon: <SiChartdotjs />,
+    title: 'Chart.Js',
+    color: 'hover:text-pink-400',
   },
   vuejs: {
     icon: <BiLogoVuejs />,
@@ -95,7 +101,7 @@ export const technicals: any = {
     icon: <TbBrandRadixUi />,
     color: 'hover:text-black dark:text-white',
   },
-  agora: { title: 'Agora', icon: <SiAgora />, color: 'text-sky-300' },
+  agora: { title: 'Agora', icon: <SiAgora />, color: 'hover:text-sky-300' },
   vite: {
     title: 'Vite.js',
     icon: <TbBrandVite />,

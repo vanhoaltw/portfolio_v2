@@ -15,7 +15,7 @@ export function H2({ children, id: slug }: Props) {
       data-ss={slug}
       data-ss-mt={96}
       className={cn(
-        'mdx-heading mdx-heading--h2 group flex items-center gap-2'
+        'mdx-heading mdx-heading--h2 group mb-4 flex items-center gap-2'
       )}
     >
       <span>{children}</span>
@@ -40,7 +40,7 @@ export function H3({ children, id: slug }: Props) {
       data-ss={slug}
       data-ss-mt={96}
       className={cn(
-        'mdx-heading mdx-heading--h3 group flex items-center gap-2'
+        'mdx-heading mdx-heading--h3 group mb-2 flex items-center gap-2'
       )}
     >
       <span>{children}</span>
