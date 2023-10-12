@@ -33,7 +33,7 @@ const SectionIntroduce = () => {
         >
           <m.li variants={animationFade}>
             Hello! My name is <span className='text-sky-400'>Hoà</span>. I'm a
-            passionate dev with +1 year of work experience in
+            passionate dev with {/* +1 year of work experience in */}
             JavaScript/TypeScript, I'm a lover of page design or other things
             and whenever I can I try to learn new technologies since I
             discovered programming at 20 years old.

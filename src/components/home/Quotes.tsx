@@ -2,7 +2,6 @@
 import React from 'react';
 
 import ClImage from '@/components/ClImage';
-import Analysis from '@/components/home/Analysis';
 import NextImage from '@/components/NextImage';
 import Tooltip from '@/components/Tooltip';
 
@@ -52,7 +51,7 @@ const Quotes = () => {
           ; if you'd like to join us to practice to kill time:))
         </p>
 
-        <Analysis />
+        {/* <Analysis /> */}
       </div>
     </div>
   );
