@@ -35,9 +35,9 @@ export default function AboutPage() {
             {[
               { name: 'Javascript', percent: 99 },
               { name: 'Typescript', percent: 60 },
+              { name: 'PHP', percent: 50 },
               { name: 'HTML', percent: 100 },
               { name: 'CSS/SCSS', percent: 98 },
-              { name: 'PHP', percent: 50 },
             ].map((i) => (
               <TechItem {...i} key={i.name} />
             ))}
@@ -48,22 +48,22 @@ export default function AboutPage() {
           <h4 className='text-lg'>Technologies</h4>
           <div className='mt-2 flex flex-wrap gap-2'>
             {[
+              { name: 'React', percent: 99 },
+              { name: 'Vue', percent: 30 },
+              { name: 'React Native', percent: 10 },
               { name: 'Tailwind CSS', percent: 99 },
               { name: 'Material UI', percent: 80 },
-              { name: 'Vue.js', percent: 30 },
               { name: 'Chakra UI', percent: 80 },
               { name: 'Mantine', percent: 99 },
               { name: 'Bootstrap', percent: 80 },
-              { name: 'React', percent: 99 },
               { name: 'Next.js', percent: 99 },
               { name: 'Framer Motion', percent: 80 },
               { name: 'Redux Tools', percent: 60 },
-              { name: 'Express', percent: 50 },
-              { name: 'MongoDB', percent: 80 },
+              { name: 'Express', percent: 20 },
               { name: 'Redis', percent: 10 },
               { name: 'Zustand', percent: 70 },
               { name: 'GraphQL', percent: 40 },
-              { name: 'Nodejs', percent: 50 },
+              { name: 'Nodejs', percent: 20 },
             ].map((i) => (
               <TechItem {...i} key={i.name} />
             ))}
@@ -75,7 +75,7 @@ export default function AboutPage() {
           <div className='mt-2 flex flex-wrap gap-2'>
             {[
               { name: 'MySQL', percent: 30 },
-              { name: 'PostgreSQL', percent: 40 },
+              { name: 'PostgreSQL', percent: 15 },
               { name: 'MongoDB', percent: 20 },
             ].map((i) => (
               <TechItem {...i} key={i.name} />

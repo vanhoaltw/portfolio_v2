@@ -22,11 +22,14 @@ export const EXPERIENCES = [
     desciprtion:
       'A voice-streaming platform towards barrier-free expression and authentic connection through voice',
     tasks: [
-      'Responsible for working on 3 website (web app, web admin, landing page), designing appealing websites and interacting on a daily basis with graphic designers.',
-      'Developing and maintaining the front-end functionality of websites.',
-      'Participating in discussions with team Marketing and team Partnership to clarify what they want.',
-      'Designing prototypes for apps and websites.',
-      'Build bot auto report bug to Trello for members in group Telegram',
+      'Strong experience with front-end frameworks such as React',
+      'Responsible for working on 3 website (web app, web admin, landing page), designing appealing websites and interacting on a daily basis with graphic designers',
+      'Expertise in building and optimizing web performance, including knowledge of browser developer tools and performance testing',
+      'Participating in discussions with team Marketing and team Partnership to clarify what they want',
+      'Familiar with version control systems like Git for collaborative development',
+      'Build a bot auto report bug to Trello for members in group Telegram',
+      'Adept at working with RESTful APIs to integrate data and services into web applications',
+      'Effective communication skills for collaborating with cross-functional teams and clients.',
     ],
     achives: ['Nextjs', 'Apollo Client', 'Mantine', 'Agora'],
   },
@@ -42,8 +45,9 @@ export const EXPERIENCES = [
     desciprtion:
       'Fiahub is the leading cryptocurrency trading platforms in Vietnam.',
     tasks: [
-      'Build ui and animated base on figma design',
-      'Setup multiple language and color schema for project',
+      'Solid understanding of cross-browser compatibility and responsive design principles',
+      'Knowledge of CSS preprocessors like SASS or LESS to maintain clean and modular styles',
+      'Familiarity with web security best practices and techniques to prevent common vulnerabilities',
     ],
     achives: ['Nextjs', 'ChartJS', 'Mantine', 'Tanstack Query'],
   },
@@ -58,9 +62,9 @@ export const EXPERIENCES = [
     major: 'Intern Front-end Developer',
     desciprtion: 'Real Estate website purchases and sale',
     tasks: [
-      'Build features for web application in coordination with the backend team',
+      'Knowledge of accessibility standards (WCAG) to create inclusive web experiences',
       'Upkeep and improvement of application functionality',
-      'Set up animated and design some screen for extra function',
+      'Continuous learning and staying up-to-date with the latest front-end development trends and technologies',
     ],
     achives: ['Nextjs', 'Typescript', 'Antd', 'ChartJS'],
   },
@@ -74,7 +78,11 @@ export const EXPERIENCES = [
     major: 'Intern Front-end Developer',
     desciprtion:
       'HODACE NETWORK is a system that collects and analyzes real estate data from the internet. Investors, brokers and homebuyers can view and freely use data freely through website / mobile app system.',
-    tasks: ['Nexjs + Typescript', 'Antd', 'Chartjs, react-chartjs-2'],
+    tasks: [
+      'Assisted senior developers in creating and maintaining responsive web interfaces using HTML, CSS, and JavaScript',
+      'Participated in integrating data and services into web applications by working with RESTful APIs',
+      'Developed and maintained clean and modular styles using CSS preprocessors like SASS or LESS',
+    ],
     achives: ['Nextjs', 'Typescript', 'Antd', 'ChartJS'],
   },
 ];
