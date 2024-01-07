@@ -3,11 +3,11 @@ import NextImage from '@/components/NextImage';
 
 import { siteConfig } from '@/constant/config';
 
-const Logo = ({ size = 30 }) => {
+const Logo = ({ size = 25 }) => {
   return (
     <PrimaryLink
       href='/'
-      className='z-50 flex items-center text-xl text-sky-400 transition-opacity hover:opacity-60'
+      className='text-primary z-50 flex items-center gap-2 transition-opacity hover:opacity-60'
     >
       <NextImage
         src='/logo.png'
@@ -15,6 +15,7 @@ const Logo = ({ size = 30 }) => {
         height={size}
         width={size}
       />
+      Hoa Nguyen
     </PrimaryLink>
   );
 };

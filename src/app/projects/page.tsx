@@ -1,7 +1,8 @@
 import { allProjects } from 'contentlayer/generated';
 
+import Accent from '@/components/Accent';
+import Container from '@/components/Container';
 import CardProject from '@/components/projects/CardProject';
-import HeaderPage from '@/components/projects/HeaderPage';
 
 export const generateMetadata = () => {
   return { title: 'Projects' };
@@ -9,17 +10,20 @@ export const generateMetadata = () => {
 
 export default function ProjectsPage() {
   return (
-    <main className='container pt-10'>
-      <HeaderPage
-        title='Project'
-        description='Showcase of my front-end related work'
-      />
+    <Container className='pt-10'>
+      <div>
+        <Accent>
+          <h1 className='mb-1'>Projects</h1>
+        </Accent>
+
+        <p>Showcase of my front-end related work</p>
+      </div>
 
       <ul className='grid-cols-project mt-6 grid gap-4'>
         {allProjects.map((project) => (
           <CardProject key={project._id} data={project} />
         ))}
       </ul>
-    </main>
+    </Container>
   );
 }

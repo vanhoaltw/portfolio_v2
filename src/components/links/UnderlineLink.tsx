@@ -15,7 +15,7 @@ const UnderlineLink = React.forwardRef<HTMLAnchorElement, UnstyledLinkProps>(
         className={cn(
           'animated-underline inline-flex items-center font-medium',
           'focus-visible:primary focus:outline-none focus-visible:ring',
-          'border-dark hover:text-primary border-b border-dotted text-sky-500 hover:border-black/0 dark:text-sky-400',
+          'hover:text-primary text-primary border-b border-dotted hover:border-black/0',
           className
         )}
       >

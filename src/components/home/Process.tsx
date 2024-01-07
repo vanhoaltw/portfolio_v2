@@ -31,18 +31,15 @@ const Process = () => {
   return (
     <ul className='grid grid-cols-1 gap-6 gap-y-6 sm:grid-cols-3'>
       {process.map((i) => (
-        <li
-          key={i.name}
-          className='relative rounded-2xl border border-slate-300 text-sm dark:border-slate-800'
-        >
-          <div className='absolute left-9 top-0 h-full w-[1px] border-l  border-slate-300 dark:border-slate-800' />
-          <div className='absolute left-0 top-9 h-[1px] w-full border-t  border-slate-300 dark:border-slate-800' />
+        <li key={i.name} className='relative rounded-2xl border  text-sm'>
+          <div className='absolute left-9 top-0 h-full w-0 border-l' />
+          <div className='absolute left-0 top-9 h-0 w-full border-t' />
 
           <div className='p-2 py-4'>
-            <div className='relative flex h-9 items-center rounded-full bg-slate-200 pl-14 font-bold leading-6 dark:bg-slate-700 dark:text-white'>
+            <div className='bg-border relative flex h-9 items-center rounded-full pl-14 font-bold leading-6'>
               <div
                 className={cn(
-                  'absolute left-0 top-1/2 flex h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full bg-red-200 text-white',
+                  'absolute left-0 top-1/2 flex h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full text-white',
                   i.color
                 )}
               >

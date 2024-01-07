@@ -2,14 +2,25 @@
 @tailwind components;
 @tailwind utilities;
 
-@import './mdx-contents.css';
-/* @import './mdx-components.css'; */
+@import './mdx.css';
 
 :root {
-  --background: 225 6% 13%;
-  --foreground: 215 20.2% 65.1%;
+  --background: 0 0% 100%;
+  --foreground: 298 100% 1%;
 
-  --primary: 205 90% 48%;
+  --muted: 210 40% 96.1%;
+  --muted-foreground: 215.4 16.3% 46.9%;
+
+  --popover: 0 0% 100%;
+  --popover-foreground: 222.2 47.4% 11.2%;
+
+  --border: 214.3 31.8% 91.4%;
+  --input: 214.3 31.8% 91.4%;
+
+  --card: 0 0% 100%;
+  --card-foreground: 222.2 47.4% 11.2%;
+
+  --primary: 298 100% 50%;
   --primary-foreground: 210 40% 98%;
 
   --secondary: 210 40% 96.1%;
@@ -18,67 +29,50 @@
   --accent: 210 40% 96.1%;
   --accent-foreground: 222.2 47.4% 11.2%;
 
-  /* Used for destructive actions such as <Button variant="destructive"> */
   --destructive: 0 100% 50%;
   --destructive-foreground: 210 40% 98%;
 
-  /* Default background color of <body />...etc */
-  --background: 210 3% 16%;
-  --foreground: 222.2 47.4% 11.2%;
-
-  /* Muted backgrounds such as <TabsList />, <Skeleton /> and <Switch /> */
-  --muted: 210 40% 96.1%;
-  --muted-foreground: 215.4 16.3% 46.9%;
-
-  --card: 0 0% 100%;
-  --card-foreground: 222.2 47.4% 11.2%;
-
-  --popover: 0 0% 100%;
-  --popover-foreground: 222.2 47.4% 11.2%;
-
-  --border: 215 19% 35%;
-  --input: 214.3 31.8% 91.4%;
   --ring: 215 20.2% 65.1%;
+
   --radius: 0.5rem;
 }
 
 .dark {
-  /* Default background color of <body />...etc */
-  --background: 225 6% 13%;
-  --foreground: 215 20.2% 65.1%;
+  --background: 0 3% 6%;
+  --foreground: 213 31% 91%;
 
-  --primary: 205 90% 48%;
-  --primary-foreground: 210 40% 98%;
+  --muted: 223 47% 11%;
+  --muted-foreground: 215.4 16.3% 56.9%;
 
-  --secondary: 0 0% 50%;
-  --secondary-foreground: 222.2 47.4% 11.2%;
+  --accent: 216 34% 17%;
+  --accent-foreground: 210 40% 98%;
 
-  --accent: 217 33% 17%;
-  --accent-foreground: 213 27% 84%;
-
-  /* Used for destructive actions such as <Button variant="destructive"> */
-  --destructive: 0 100% 50%;
-  --destructive-foreground: 210 40% 98%;
-
-  /* Muted backgrounds such as <TabsList />, <Skeleton /> and <Switch /> */
-  --muted: 210 40% 96.1%;
-  --muted-foreground: 215.4 16.3% 46.9%;
-
-  --card: 0 0% 9%;
-  --card-foreground: 222.2 47.4% 11.2%;
-
-  --popover: 222 47% 11%;
+  --popover: 0 3% 6%;
   --popover-foreground: 215 20.2% 65.1%;
 
-  --border: 217 32.6% 17.5%;
-  --input: 0 1% 22%;
-  --ring: 205 90% 48%;
+  --border: 216 34% 17%;
+  --input: 216 34% 17%;
+
+  --card: 224 71% 4%;
+  --card-foreground: 213 31% 91%;
+
+  --primary: 186 100% 50%;
+  --primary-foreground: 222.2 47.4% 1.2%;
+
+  --secondary: 222.2 47.4% 11.2%;
+  --secondary-foreground: 210 40% 98%;
+
+  --destructive: 0 63% 31%;
+  --destructive-foreground: 210 40% 98%;
+
+  --ring: 216 34% 17%;
+
   --radius: 0.5rem;
 }
 
 @layer base {
   * {
-    @apply border-slate-300 dark:border-slate-700;
+    @apply border-border;
   }
 
   html {
@@ -92,39 +86,33 @@
 
   /* #region  /**=========== Typography =========== */
   .h0 {
-    @apply font-primary text-3xl font-bold text-slate-600 dark:text-white md:text-5xl;
+    @apply font-primary text-3xl font-bold md:text-5xl;
   }
 
   h1,
   .h1 {
-    @apply font-primary text-2xl font-bold text-slate-600 dark:text-slate-200 md:text-3xl;
+    @apply font-primary text-2xl font-bold md:text-3xl;
   }
 
   h2,
   .h2 {
-    @apply font-primary text-xl font-bold text-slate-600 dark:text-slate-200 md:text-2xl;
+    @apply font-primary text-xl font-bold md:text-2xl;
   }
 
   h3,
   .h3 {
-    @apply font-primary text-lg font-bold text-slate-600 dark:text-slate-200 md:text-2xl;
+    @apply font-primary text-lg font-bold md:text-xl;
   }
 
   h4,
   .h4 {
-    @apply font-primary text-base font-bold text-slate-600 dark:text-slate-200 md:text-lg;
+    @apply font-primary text-base font-bold  md:text-lg;
   }
 
   body {
-    @apply font-primary bg-white text-sm text-slate-600 antialiased [overflow:overlay] dark:bg-slate-900 dark:text-slate-400 md:text-base;
+    @apply font-primary bg-background overflow-x-hidden  text-sm antialiased [overflow:overlay] md:text-base;
   }
   /* #endregion  /**======== Typography =========== */
-
-  .layout {
-    /* 1100px */
-    max-width: 68.75rem;
-    @apply mx-auto w-11/12;
-  }
 
   .bg-dark a.custom-link {
     @apply border-gray-200 hover:border-gray-200/0;
@@ -133,6 +121,26 @@
   /* Class to adjust with sticky footer */
   .min-h-main {
     @apply min-h-[calc(100vh-56px)];
+  }
+
+  .bg-grid {
+    position: absolute;
+    inset: 0;
+    height: 100%;
+    width: 100%;
+    background-image: linear-gradient(to right, #80808012 1px, transparent 1px),
+      linear-gradient(to bottom, #80808012 1px, transparent 1px);
+    background-size: 24px 24px;
+    -webkit-mask-image: radial-gradient(
+      ellipse 50% 50% at 50% 50%,
+      #000 60%,
+      transparent 100%
+    );
+    mask-image: radial-gradient(
+      ellipse 50% 50% at 50% 50%,
+      #000 60%,
+      transparent 100%
+    );
   }
 }
 

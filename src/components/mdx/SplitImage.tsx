@@ -5,9 +5,11 @@ export default function SplitImage({
 }: {
   children: React.ReactNode;
 }) {
-  return <div className='grid grid-cols-2 items-start gap-4'>{children}</div>;
+  return (
+    <div className='mt-6 grid grid-cols-2 items-start gap-4'>{children}</div>
+  );
 }
 
 export function Split({ children }: { children: React.ReactNode }) {
-  return <div className='mb-4 flex flex-col gap-4'>{children}</div>;
+  return <div className='mt-6 flex flex-col gap-4'>{children}</div>;
 }

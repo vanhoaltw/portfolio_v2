@@ -9,11 +9,12 @@ import UnstyledLink from '@/components/links/UnstyledLink';
 
 import { siteConfig } from '@/constant/config';
 import { NAVS_MAIN } from '@/constant/navs';
+import { Github } from 'lucide-react';
 
 export default function DesktopMenu() {
   const pathname = usePathname();
   return (
-    <nav className='hidden w-full flex-1 items-center text-sm md:flex'>
+    <nav className='flex w-full flex-1 items-center gap-4 text-sm'>
       {NAVS_MAIN.map((nav, idx) => {
         const isActive = pathname?.substring(1) === nav.url?.substring(1);
         return (
@@ -21,10 +22,8 @@ export default function DesktopMenu() {
             <UnstyledLink href={isActive ? '' : nav.url}>
               <span
                 className={cn(
-                  'inline-block rounded-md p-1.5 px-3 font-semibold transition-colors',
-                  isActive
-                    ? 'cursor-default text-sky-500 dark:text-blue-400'
-                    : 'text-slate-600 hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-slate-800'
+                  'inline-block rounded-md py-1.5 font-semibold transition-colors',
+                  isActive ? 'cursor-default ' : 'text-muted-foreground'
                 )}
               >
                 {nav.name}
@@ -34,10 +33,10 @@ export default function DesktopMenu() {
         );
       })}
 
-      <div className='flex grow items-center justify-end gap-2'>
-        <UnstyledLink href={siteConfig.githubUrl}>
+      <div className='flex grow items-center justify-end'>
+        <UnstyledLink className='hidden sm:block' href={siteConfig.githubUrl}>
           <IconButton variant='ghost'>
-            <RiGithubFill size={22} />
+            <Github size={22} />
           </IconButton>
         </UnstyledLink>
         <ToggleTheme />

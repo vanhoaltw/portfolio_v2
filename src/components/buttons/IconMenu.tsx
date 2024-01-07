@@ -13,7 +13,7 @@ const IconMenu = ({
     <div
       onClick={onClick}
       className={cn(
-        'relative z-50 flex h-5 w-5 cursor-pointer flex-col items-end justify-between text-sky-400',
+        'relative z-50 flex h-5 w-5 cursor-pointer flex-col items-end justify-between',
         className
       )}
     >

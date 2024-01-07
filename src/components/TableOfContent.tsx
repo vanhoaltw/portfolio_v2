@@ -52,15 +52,10 @@ const TableOfContent = () => {
   }, [activeSection]);
 
   return (
-    <div
-      ref={tocParentRef}
-      className='max-h-[70vh] overflow-auto rounded-xl border dark:border-slate-800 dark:bg-[#161e31]'
-    >
-      <p className='p-4 font-bold dark:text-white'>Table of contents</p>
+    <div ref={tocParentRef} className='max-h-[70vh] overflow-auto text-sm'>
+      <p>On This Page</p>
 
-      <hr className='dark:border-slate-800' />
-
-      <div className='flex flex-col text-sm font-semibold'>
+      <div className='mt-4 flex flex-col gap-y-2'>
         {toc?.map?.((i) => (
           <TOCLink
             id={i.id}

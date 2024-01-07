@@ -1,28 +1,36 @@
 import { Mail } from 'lucide-react';
 
 import Experience from '@/components/about/Experience';
-import PrimaryLink from '@/components/links/PrimaryLink';
+import Introduce from '@/components/about/Introduce';
+import Container from '@/components/Container';
+import UnderlineLink from '@/components/links/UnderlineLink';
 import Tooltip from '@/components/Tooltip';
 
-import SectionIntroduce from '@/app/about/section-introduce';
 import { siteConfig } from '@/constant/config';
+
+export const generateMetadata = () => {
+  return { title: 'About' };
+};
 
 const TechItem = ({ name = '', percent = 0 }) => (
   <Tooltip tipChildren={`${percent}%`}>
-    <div className='relative inline-block min-w-[50px] overflow-hidden rounded-md bg-slate-200 text-xs dark:bg-slate-800'>
-      <p className='px-3 py-1.5 text-center font-bold'>{name}</p>
-      <div className='h-0.5 bg-current' style={{ width: `${percent}%` }} />
+    <div className='relative inline-block min-w-[50px] overflow-hidden rounded-md bg-neutral-200 text-xs dark:bg-neutral-800'>
+      <p className='px-2 py-1 text-center font-bold'>{name}</p>
+      <div
+        className='bg-foreground/40 h-0.5'
+        style={{ width: `${percent}%` }}
+      />
     </div>
   </Tooltip>
 );
 
 export default function AboutPage() {
   return (
-    <main className='container mt-10 space-y-20'>
-      <SectionIntroduce />
+    <Container className='mt-10 space-y-20'>
+      <Introduce />
 
       <section>
-        <h2 className='h1 mb-4'>Skill & Tools</h2>
+        <h2>Skill & Tools</h2>
         <p className='mb-6'>
           A list of every programming language, library, and tool I've used.
           I've tried some programming languages and tech stack, both Back-End,
@@ -101,7 +109,8 @@ export default function AboutPage() {
       </section>
 
       <section>
-        <h2 className='h1 mb-4'>Experience</h2>
+        <h2>Experience</h2>
+
         <p className='mb-6'>
           I started working and attending school together in my third year of
           college (2021).
@@ -110,11 +119,11 @@ export default function AboutPage() {
       </section>
 
       <section>
-        <h2 className='h1'>Contact</h2>
+        <h2>Contact</h2>
         <div className='mt-4 overflow-hidden rounded-md border'>
-          <table className='w-full text-left text-sm text-slate-500 dark:text-slate-400'>
+          <table className='w-full text-left text-sm'>
             <thead>
-              <tr className='border-b dark:text-white'>
+              <tr className='border-b'>
                 <th scope='col' className='px-6 py-3'>
                   Contact
                 </th>
@@ -137,13 +146,13 @@ export default function AboutPage() {
                   Email
                 </th>
                 <th scope='row' className='px-6 py-3 font-medium'>
-                  <PrimaryLink
-                    className='text-primary inline-flex items-center gap-1 font-semibold dark:text-sky-400'
+                  <UnderlineLink
+                    className='inline-flex items-center gap-1'
                     href='mailto:vanhoaltw@gmail.com'
                   >
-                    <Mail size={15} />
+                    <Mail size={16} />
                     vanhoaltw@gmail.com
-                  </PrimaryLink>
+                  </UnderlineLink>
                 </th>
               </tr>
               <tr>
@@ -164,11 +173,11 @@ export default function AboutPage() {
       </section>
 
       <section>
-        <h2 className='h1'>Social Media</h2>
+        <h2>Social Media</h2>
         <div className='mt-4 overflow-hidden rounded-md border'>
           <table className='w-full text-left text-sm'>
             <thead>
-              <tr className='border-b dark:text-white'>
+              <tr className='border-b'>
                 <th scope='col' className='px-6 py-3'>
                   Social Media
                 </th>
@@ -179,8 +188,6 @@ export default function AboutPage() {
             </thead>
             <tbody>
               {[
-                { name: 'Facebook', url: siteConfig.facebookUrl },
-                { name: 'Instagram', url: siteConfig.instagramUrl },
                 { name: 'Linked', url: siteConfig.linkedUrl },
                 { name: 'Twitter', url: siteConfig.twitterUrl },
               ].map((i) => (
@@ -189,12 +196,7 @@ export default function AboutPage() {
                     {i.name}
                   </th>
                   <th scope='row' className='px-6 py-4'>
-                    <PrimaryLink
-                      href={i.url}
-                      className='hover:text-primary text-primary font-semibold dark:text-sky-400'
-                    >
-                      {i.url}
-                    </PrimaryLink>
+                    <UnderlineLink href={i.url}>{i.url}</UnderlineLink>
                   </th>
                 </tr>
               ))}
@@ -202,6 +204,6 @@ export default function AboutPage() {
           </table>
         </div>
       </section>
-    </main>
+    </Container>
   );
 }

@@ -8,7 +8,7 @@ import React from 'react';
 
 import { cn } from '@/lib/utils';
 
-import PrimaryLink from '@/components/links/PrimaryLink';
+import UnstyledLink from '@/components/links/UnstyledLink';
 
 import { siteConfig } from '@/constant/config';
 
@@ -16,14 +16,9 @@ const Socials = ({ className }: { className?: string }) => {
   return (
     <div className={cn('flex gap-2', className)}>
       {stacks.map(({ name, icon, url }) => (
-        <PrimaryLink
-          key={name}
-          href={url}
-          title={name}
-          className='hover:text-sky-400'
-        >
+        <UnstyledLink key={name} href={url} title={name}>
           {icon}
-        </PrimaryLink>
+        </UnstyledLink>
       ))}
     </div>
   );

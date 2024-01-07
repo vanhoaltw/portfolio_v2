@@ -1,23 +1,27 @@
 import { Analytics } from '@vercel/analytics/react';
 import { Metadata } from 'next';
 import { Plus_Jakarta_Sans } from 'next/font/google';
-import NextTopLoader from 'nextjs-toploader';
 import * as React from 'react';
 
 import '@/styles/globals.css';
 import 'keen-slider/keen-slider.min.css';
 
-import Footer from '@/components/layouts/Footer';
-import Header from '@/components/layouts/Header';
+import NavigationProgress from '@/components/NavigationProgress';
+import RootProvider from '@/components/providers/RootProvider';
 import SkipNavigation from '@/components/SkipNavigation';
 
-import RootProvider from '@/app/provider';
 import { siteConfig } from '@/constant/config';
+
+interface RootProps {
+  children: React.ReactNode;
+}
 
 const fontSans = Plus_Jakarta_Sans({
   subsets: ['latin'],
   variable: '--font-sans',
 });
+
+const isDev = process.env.NODE_ENV === 'development';
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
@@ -56,10 +60,6 @@ export const metadata: Metadata = {
   ],
 };
 
-interface RootProps {
-  children: React.ReactNode;
-}
-
 export default function RootLayout({ children }: RootProps) {
   return (
     <html lang='en' suppressHydrationWarning>
@@ -67,21 +67,14 @@ export default function RootLayout({ children }: RootProps) {
         <main className={`${fontSans.variable}`}>
           <RootProvider>
             <SkipNavigation />
-            <NextTopLoader
-              color='#2299DD'
-              initialPosition={0.08}
-              crawlSpeed={200}
-              height={3}
-              crawl={true}
-              showSpinner={true}
-              easing='ease'
-              speed={200}
-              shadow='0 0 10px #2299DD,0 0 5px #2299DD'
-            />
-            <Header />
-            <div style={{ minHeight: 'calc(100vh - 370px)' }}>{children}</div>
-            <Footer />
-            <Analytics />
+            <NavigationProgress />
+            <div
+              style={{ minHeight: 'calc(100vh - 300px)' }}
+              className='pt-10 md:pt-20'
+            >
+              {children}
+            </div>
+            {!isDev && <Analytics />}
           </RootProvider>
         </main>
       </body>
