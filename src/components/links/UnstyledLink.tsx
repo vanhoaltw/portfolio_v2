@@ -3,6 +3,7 @@ import * as React from 'react';
 
 export type UnstyledLinkProps = {
   href: string;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   children?: any;
   openNewTab?: boolean;
   className?: string;

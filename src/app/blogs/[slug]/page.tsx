@@ -1,13 +1,12 @@
-import { allBlogs, allProjects } from 'contentlayer/generated';
+import buildUrl from 'cloudinary-build-url';
+import { allBlogs } from 'contentlayer/generated';
 import { format } from 'date-fns';
 import { notFound } from 'next/navigation';
-import { BiTime } from 'react-icons/bi';
 
 import ButtonBack from '@/components/buttons/ButtonBack';
 import ClImage from '@/components/ClImage';
-import Mdx from '@/components/mdx';
-import TableOfContent from '@/components/TableOfContent';
 import Container from '@/components/Container';
+import Mdx from '@/components/mdx';
 
 interface Props {
   params: {
@@ -22,12 +21,23 @@ export const generateStaticParams = async () => {
 };
 
 export const generateMetadata = ({ params }: Props) => {
-  const post = allProjects.find((p) =>
-    p._raw.flattenedPath.includes(params.slug)
-  );
+  const post = allBlogs.find((p) => p._raw.flattenedPath.includes(params.slug));
+
+  const bannerUrl = post?.banner
+    ? buildUrl(post?.banner, {
+        cloud: { cloudName: process.env.CLOUDINARY_CLOUD_NAME },
+      })
+    : '';
+
   return {
     title: post?.title,
     description: post?.description,
+    openGraph: {
+      title: post?.title,
+      description: post?.description,
+      siteName: post?.title,
+      images: [bannerUrl],
+    },
   };
 };
 

@@ -1,5 +1,4 @@
 import { cn } from '@/lib/utils';
-import React from 'react';
 
 const boxs = new Array(1000).fill(1);
 

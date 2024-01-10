@@ -2,11 +2,10 @@ import { Analytics } from '@vercel/analytics/react';
 import { Metadata } from 'next';
 import { Plus_Jakarta_Sans } from 'next/font/google';
 import * as React from 'react';
+import { Toaster } from 'react-hot-toast';
 
 import '@/styles/globals.css';
-import 'keen-slider/keen-slider.min.css';
 
-import NavigationProgress from '@/components/NavigationProgress';
 import RootProvider from '@/components/providers/RootProvider';
 import SkipNavigation from '@/components/SkipNavigation';
 
@@ -42,7 +41,7 @@ export const metadata: Metadata = {
     title: siteConfig.title,
     description: siteConfig.description,
     siteName: siteConfig.title,
-    images: [`${siteConfig.url}/images/og.png`],
+    images: [`${siteConfig.url}/og`],
     type: 'website',
     locale: 'en_US',
   },
@@ -67,7 +66,7 @@ export default function RootLayout({ children }: RootProps) {
         <main className={`${fontSans.variable}`}>
           <RootProvider>
             <SkipNavigation />
-            <NavigationProgress />
+            <Toaster />
             <div
               style={{ minHeight: 'calc(100vh - 300px)' }}
               className='pt-10 md:pt-20'

@@ -61,9 +61,8 @@ const IconButton = React.forwardRef<HTMLButtonElement, IconButtonProps>(
               'dark:hover:bg-slate-900 dark:active:bg-slate-800 dark:disabled:bg-slate-800',
             ],
             variant === 'ghost' && [
-              'dark:text-slate-200',
               'shadow-none',
-              'hover:bg-slate-100 active:bg-slate-100 disabled:bg-slate-100 dark:hover:bg-slate-800',
+              'hover:bg-accent active:bg-accent/80 disabled:bg-muted ',
             ],
             variant === 'light' && [
               'bg-white text-gray-700',

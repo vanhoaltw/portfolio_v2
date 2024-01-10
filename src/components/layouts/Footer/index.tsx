@@ -1,7 +1,5 @@
-import React from 'react';
-
-import Socials from '@/components/Socials';
 import Container from '@/components/Container';
+import Socials from '@/components/Socials';
 
 const Footer = () => {
   return (

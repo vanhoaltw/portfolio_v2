@@ -1,5 +1,5 @@
+import { Github } from 'lucide-react';
 import { usePathname } from 'next/navigation';
-import { RiGithubFill } from 'react-icons/ri';
 
 import { cn } from '@/lib/utils';
 
@@ -9,12 +9,11 @@ import UnstyledLink from '@/components/links/UnstyledLink';
 
 import { siteConfig } from '@/constant/config';
 import { NAVS_MAIN } from '@/constant/navs';
-import { Github } from 'lucide-react';
 
 export default function DesktopMenu() {
   const pathname = usePathname();
   return (
-    <nav className='flex w-full flex-1 items-center gap-4 text-sm'>
+    <nav className='hidden w-full flex-1 items-center gap-4 text-sm sm:flex'>
       {NAVS_MAIN.map((nav, idx) => {
         const isActive = pathname?.substring(1) === nav.url?.substring(1);
         return (
