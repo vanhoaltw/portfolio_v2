@@ -1,0 +1,98 @@
+---
+id: 1
+title: 'How to add Google Analytics to Nextjs'
+description: 'Google Analytics is a great tool for tracking page views and other website metrics'
+publishedAt: '2023-09-26'
+banner: 'v1704623194/bo63hsh3ktkbewwic3z8_ogaeab.webp'
+featured: true
+---
+
+## Introduction
+
+Google Analytics serves as a web analytics service delivering statistics and fundamental analytical tools essential for search engine optimization (SEO) and marketing strategies. Integrating to your Next.js application allows you track website performance and collect visitor insights, gauge the success of their marketing activities and campaigns, discover patterns and trends in user engagement. Today we will see how to integrate Google Analytics into a Next.js application.
+
+### Step 1 - Setting up Google Analytics
+
+- To get started, let's visit the [Analytics dashboard](https://analytics.google.com/analytics/web) and create you new account. If you register for the first time, you will be asked to add a new property.
+- After completing the setup, you will be taken to a new platform page for your account.
+
+![Goole Analytics dashboard](https://res.cloudinary.com/hoanguyen/image/upload/v1704564262/Screenshot_2024-01-07_at_01.02.58_fp7ptu.png)
+
+- Select platform for your property, in this tutorial that will be **web**
+
+![Add platform](https://res.cloudinary.com/hoanguyen/image/upload/v1704564986/Screenshot_2024-01-07_at_01.15.41_ajvdfs.png)
+
+- Once the property stream created, you will be taken to a page similar to the one below. Now you must copy value of **MEASUREMENT CODE**, it should be in the format G-XXXXXXXXXX.
+
+![Get MEASUREMENT CODE](https://res.cloudinary.com/hoanguyen/image/upload/v1704565366/Screenshot_2024-01-07_at_01.22.33_zldj79.png)
+
+### Step 2 - Initialize the project
+
+If you just want integrate to your project, you can skip this step.
+
+- Create a new NextJS applicate by running the following command:
+
+```jsx
+npx create-next-app@latest your-next-app
+```
+
+### Step 3 - Add to environment
+
+Add your Google Analytics id to **\`.env\`**.
+
+```jsx title=".env"
+NEXT_PUBLIC_GOOGLE_ANALYTICS = 'your_google_analytics_id';
+```
+
+### Step 4 - Add Google Analytics
+
+Add script load Google Tag Manager into \_app.js
+
+```jsx title="_app.js"
+import { AppProps } from 'next/app';
+import Head from 'next/head';
+import React, { useEffect } from 'react';
+import './styles.css';
+import Script from 'next/script';
+import Router from 'next/router';
+
+const GTM_ID = process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS;
+
+function App({ Component, pageProps, router }: AppProps) {
+  return (
+    <>
+      <Script
+        id='google-tag-manager'
+        strategy='afterInteractive'
+        dangerouslySetInnerHTML={{
+          __html: `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+                  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+                  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+                  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+                  })(window,document,'script','dataLayer','${GTM_ID}');
+          `,
+        }}
+      />
+
+      <Component {...pageProps} />
+    </>
+  );
+}
+
+export default App;
+```
+
+### Step 5 - Check if the Google Analytics is enabled
+
+Run you application by following command
+
+```js
+yarn dev
+// or yarn build & yarn start
+```
+
+And go to the URL **[http://localhost:3000]** and open the console.
+
+![Open tab console in dev tools](https://res.cloudinary.com/hoanguyen/image/upload/v1704621224/5_xzsmgh.png)
+
+If you see **undefined** then there was something wrong. If you see something like the above picture, then analytics is activated.
