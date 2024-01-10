@@ -10,8 +10,8 @@ import { cn } from '@/lib/utils';
 import ClImage from '@/components/ClImage';
 import UnderlineLink from '@/components/links/UnderlineLink';
 import Code from '@/components/mdx/Code';
-import { Pre } from '@/components/mdx/Pre';
 import heading from '@/components/mdx/Heading';
+import { Pre } from '@/components/mdx/Pre';
 import SplitImage, { Split } from '@/components/mdx/SplitImage';
 import TechStack from '@/components/mdx/TechStack';
 
@@ -46,7 +46,8 @@ const components = {
   hr: ({ ...props }) => <hr className='my-4 md:my-8' {...props} />,
   pre: Pre,
   code: Code,
-  img: ({ ...props }) => <img {...props} className='rounded-md' />,
+  // eslint-disable-next-line @next/next/no-img-element
+  img: ({ ...props }) => <img alt='' {...props} className='rounded-md' />,
   Image: Image,
   ClImage: ({ ...props }) => <ClImage {...props} mdx className='rounded-lg' />,
   TechStack: TechStack,

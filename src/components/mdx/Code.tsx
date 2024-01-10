@@ -1,6 +1,6 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 'use client';
 
-import { cn } from '@/lib/utils';
 import { ReactNode, SVGProps, useRef, useState } from 'react';
 
 interface Props {
@@ -17,7 +17,7 @@ const Code = ({ children, ...rest }: Props) => {
   const [copied, setCopied] = useState(false);
   const elementRef = useRef<any>();
   const copyTimeout = useRef<any>();
-  console.log({ rest });
+
   const handleCopy = () => {
     clearTimeout(copyTimeout.current);
     navigator.clipboard.writeText(elementRef.current.textContent);

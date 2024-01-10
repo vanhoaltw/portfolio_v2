@@ -3,13 +3,13 @@ import { ChevronDown } from 'lucide-react';
 import { getFeaturedBlogs, getFeaturedProjects } from '@/lib/mdx';
 
 import Accent from '@/components/Accent';
+import BackgroundGrid from '@/components/BackgroundGrid';
 import Container from '@/components/Container';
 import Intro from '@/components/home/Intro';
 import Quotes from '@/components/home/Quotes';
 import UnstyledLink from '@/components/links/UnstyledLink';
 import CardBlog from '@/components/projects/CardBlog';
 import CardProject from '@/components/projects/CardProject';
-import BackgroundGrid from '@/components/BackgroundGrid';
 
 export default async function HomePage() {
   const featuredProject = getFeaturedProjects().slice(0, 3);

@@ -1,22 +1,20 @@
-import PrimaryLink from '@/components/links/PrimaryLink';
+import Link from 'next/link';
+
 import NextImage from '@/components/NextImage';
 
 import { siteConfig } from '@/constant/config';
 
 const Logo = ({ size = 25 }) => {
   return (
-    <PrimaryLink
-      href='/'
-      className='text-primary z-50 flex items-center gap-2 transition-opacity hover:opacity-60'
-    >
+    <Link href='/' className='text-foreground z-50 flex items-center gap-2'>
       <NextImage
-        src='/logo.png'
+        src='/favicon/favicon.png'
         alt={siteConfig.title}
         height={size}
         width={size}
       />
       Hoa Nguyen
-    </PrimaryLink>
+    </Link>
   );
 };
 
