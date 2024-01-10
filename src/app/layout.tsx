@@ -1,4 +1,5 @@
 import { Analytics } from '@vercel/analytics/react';
+import { SpeedInsights } from '@vercel/speed-insights/next';
 import { Metadata } from 'next';
 import { Plus_Jakarta_Sans } from 'next/font/google';
 import * as React from 'react';
@@ -20,8 +21,6 @@ const fontSans = Plus_Jakarta_Sans({
   variable: '--font-sans',
 });
 
-const isDev = process.env.NODE_ENV === 'development';
-
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
   title: {
@@ -35,7 +34,6 @@ export const metadata: Metadata = {
     shortcut: '/favicon/favicon-16x16.png',
     apple: '/favicon/apple-touch-icon.png',
   },
-  manifest: `/favicon/site.webmanifest`,
   openGraph: {
     url: siteConfig.url,
     title: siteConfig.title,
@@ -73,7 +71,8 @@ export default function RootLayout({ children }: RootProps) {
             >
               {children}
             </div>
-            {!isDev && <Analytics />}
+            <SpeedInsights />
+            <Analytics />
           </RootProvider>
         </main>
       </body>
