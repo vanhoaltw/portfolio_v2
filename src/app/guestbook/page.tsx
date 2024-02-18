@@ -1,3 +1,5 @@
+import { format } from 'date-fns';
+
 import { getCurrentUser } from '@/lib/session';
 
 import Container from '@/components/Container';
@@ -15,17 +17,23 @@ const GuestBook = async () => {
   const guestbooks = await getGuestbook();
 
   return (
-    <Container className='space-y-6 pt-10'>
-      <h3>Sign my guestbook</h3>
+    <Container className='pt-10'>
+      <h1 className='mb-4'>Sign my guestbook</h1>
+      <p className='text-muted-foreground mb-8'>
+        Write anything for the future visitors and me 🤝🏻. I'd appreciate a
+        joke / quote.
+      </p>
+
       {user ? <FormGuest /> : <SignInGithub />}
 
-      <ul>
+      <ul className='bg-dot mt-8 flex flex-col gap-6 py-4'>
         {guestbooks?.map?.((i) => (
           <li key={i.id}>
-            <span className='text-muted-foreground mr-1.5 inline-block text-sm'>
-              {i?.name}:
-            </span>
-            {i?.text}
+            <i>{i?.text}</i>
+            <div className='text-muted-foreground mt-1.5 flex gap-2 text-sm'>
+              <span>{i?.name}</span>/
+              <span>{format(i.createAt, "dd LLL uu 'at' p")}</span>
+            </div>
           </li>
         ))}
       </ul>

@@ -177,7 +177,7 @@ export const getAllTechnical = () => {
 };
 
 export const getFeaturedProjects = () => {
-  return allProjects.filter((i) => i.featured);
+  return allProjects;
 };
 
 export const getFeaturedBlogs = () => {

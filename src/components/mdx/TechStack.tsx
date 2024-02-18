@@ -1,32 +1,20 @@
 import { cn } from '@/lib/utils';
 
-import Tooltip from '@/components/Tooltip';
-
-import { technicals } from '@/constant/tech';
-
-const TechStack = ({
-  data,
-  className,
-}: {
+interface Props {
   data: string[];
   className?: string;
-}) => {
-  if (!data?.length) return null;
+}
+const TechStack = ({ data, className }: Props) => {
   return (
-    <div className={cn('mt-3 flex items-center gap-3 text-2xl', className)}>
-      {data.map((i, idx) => {
-        const { title, icon, color } = technicals?.[i] || {};
+    <div className={cn('flex flex-wrap items-center gap-1', className)}>
+      {data.map((i) => {
         return (
-          <Tooltip tipChildren={title} key={`${title}-${idx}`}>
-            <div
-              className={cn(
-                'capitialize transition-all hover:-translate-y-1 ',
-                color
-              )}
-            >
-              {icon}
-            </div>
-          </Tooltip>
+          <i
+            key={i}
+            className='border-foreground/20 rounded-sm border px-1.5 py-0.5 text-xs capitalize'
+          >
+            {i}
+          </i>
         );
       })}
     </div>

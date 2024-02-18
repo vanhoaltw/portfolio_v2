@@ -19,7 +19,7 @@ export default function ProjectsPage() {
         <p>Web development thoughts and stories</p>
       </div>
 
-      <ul className='mt-6 grid grid-cols-[repeat(auto-fill,minmax(300px,_1fr))] gap-4'>
+      <ul className='mt-6 flex flex-col gap-2'>
         {allBlogs.map((i) => (
           <CardBlog key={i._id} data={i} />
         ))}

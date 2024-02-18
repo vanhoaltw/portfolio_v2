@@ -130,17 +130,16 @@
     width: 100%;
     background-image: linear-gradient(to right, #80808012 1px, transparent 1px),
       linear-gradient(to bottom, #80808012 1px, transparent 1px);
-    background-size: 24px 24px;
-    -webkit-mask-image: radial-gradient(
-      ellipse 50% 50% at 50% 50%,
-      #000 60%,
-      transparent 100%
+    background-size: 36px 36px;
+  }
+
+  .bg-dot {
+    background-image: radial-gradient(
+      circle at 1px 1px,
+      hsl(var(--foreground) / 0.1) 1px,
+      transparent 0
     );
-    mask-image: radial-gradient(
-      ellipse 50% 50% at 50% 50%,
-      #000 60%,
-      transparent 100%
-    );
+    background-size: 15px 15px;
   }
 }
 

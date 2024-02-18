@@ -12,8 +12,9 @@ import { NAVS_MAIN } from '@/constant/navs';
 
 export default function DesktopMenu() {
   const pathname = usePathname();
+
   return (
-    <nav className='hidden w-full flex-1 items-center gap-4 text-sm sm:flex'>
+    <nav className='hidden  w-full flex-1 items-center gap-4 text-sm sm:flex'>
       {NAVS_MAIN.map((nav, idx) => {
         const isActive = pathname?.substring(1) === nav.url?.substring(1);
         return (

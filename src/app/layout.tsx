@@ -1,7 +1,7 @@
 import { Analytics } from '@vercel/analytics/react';
 import { SpeedInsights } from '@vercel/speed-insights/next';
 import { Metadata } from 'next';
-import { Plus_Jakarta_Sans } from 'next/font/google';
+import { Inter } from 'next/font/google';
 import * as React from 'react';
 import { Toaster } from 'react-hot-toast';
 
@@ -16,7 +16,7 @@ interface RootProps {
   children: React.ReactNode;
 }
 
-const fontSans = Plus_Jakarta_Sans({
+const fontSans = Inter({
   subsets: ['latin'],
   variable: '--font-sans',
 });
@@ -30,9 +30,9 @@ export const metadata: Metadata = {
   description: siteConfig.description,
   robots: { index: true, follow: true },
   icons: {
-    icon: '/favicon/favicon.png',
-    shortcut: '/favicon/favicon-16x16.png',
-    apple: '/favicon/apple-touch-icon.png',
+    icon: '/images/my-avatar.jpg',
+    shortcut: '/images/my-avatar.jpg',
+    apple: '/images/my-avatar.jpg',
   },
   openGraph: {
     url: siteConfig.url,

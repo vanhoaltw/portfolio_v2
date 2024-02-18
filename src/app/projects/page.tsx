@@ -10,7 +10,7 @@ export const generateMetadata = () => {
 
 export default function ProjectsPage() {
   return (
-    <Container>
+    <Container className='mt-10'>
       <div>
         <Accent>
           <h1 className='mb-1'>Projects</h1>

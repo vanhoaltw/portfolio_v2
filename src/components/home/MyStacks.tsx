@@ -1,5 +1,3 @@
-import { cn } from '@/lib/utils';
-
 import Tooltip from '@/components/Tooltip';
 
 import { technicals } from '@/constant/tech';
@@ -11,23 +9,17 @@ const stacks = [
   technicals.tailwind,
   technicals.typescript,
   technicals.graphql,
-  technicals.visualStudio,
-  technicals.figma,
 ];
 
 const MyStacks = () => {
   return (
     <div>
       <p className='h4'>Current Favorite Tech Stack/Tool</p>
-      <ul className='mt-2 flex items-center gap-2 text-2xl sm:text-3xl'>
+      <ul className='mt-1 flex items-center gap-2 text-2xl sm:text-4xl'>
         {stacks.map((i) => (
           <li key={i.title} title={i.title}>
             <Tooltip tipChildren={<div>{i.title}</div>}>
-              <div
-                className={cn('transition-all hover:-translate-y-1', i.color)}
-              >
-                {i.icon}
-              </div>
+              <div className={i.color}>{i.icon}</div>
             </Tooltip>
           </li>
         ))}
