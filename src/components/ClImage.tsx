@@ -1,7 +1,7 @@
+/* eslint-disable @next/next/no-img-element */
 'use client';
 
 import buildUrl from 'cloudinary-build-url';
-import Image from 'next/image';
 
 import { cn } from '@/lib/utils';
 
@@ -89,7 +89,7 @@ export default function ClImage({
         />
 
         <div className='absolute left-0 top-0'>
-          <Image
+          <img
             width={
               resizedToMaxWidth ? Math.min(+width, RESIZE_MAX_WIDTH) : width
             }
@@ -98,7 +98,6 @@ export default function ClImage({
             }
             src={url}
             alt={alt}
-            title={alt}
           />
         </div>
       </div>

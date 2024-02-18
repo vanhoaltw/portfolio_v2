@@ -1,17 +1,17 @@
 import { getServerSession, NextAuthOptions } from 'next-auth';
 import GitHubProvider from 'next-auth/providers/github';
 
-const secret = process.env.NEXT_PUBLIC_SECRET;
+import { env } from '@/env.mjs';
 
 const authOptions: NextAuthOptions = {
-  secret,
+  secret: env.NEXTAUTH_SECRET,
   providers: [
     GitHubProvider({
-      clientId: process.env.NEXT_PUBLIC_GITHUB_CLIENT_ID as string,
-      clientSecret: process.env.NEXT_PUBLIC_GITHUB_CLIENT_SECRET as string,
+      clientId: env.NEXT_PUBLIC_GITHUB_ID,
+      clientSecret: env.NEXT_PUBLIC_GITHUB_SECRET,
     }),
   ],
-  debug: true,
+  debug: process.env.NODE_ENV === 'development',
 };
 
 const getNextAuthServerSession = () => getServerSession(authOptions);

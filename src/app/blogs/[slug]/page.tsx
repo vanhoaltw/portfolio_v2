@@ -17,7 +17,9 @@ interface Props {
   };
 }
 
-export const generateStaticParams = async () => {
+export const dynamic = 'force-dynamic';
+
+export const generateStaticParams = () => {
   return allBlogs.map((post) => ({
     slug: post._raw.flattenedPath.split('/')[2],
   }));
@@ -45,49 +47,57 @@ export const generateMetadata = ({ params }: Props) => {
 };
 
 const BlogDetail = async ({ params }: Props) => {
-  const post = allBlogs.find((p) => p._raw.flattenedPath.includes(params.slug));
-  const user = await getCurrentUser();
-  if (!post) return notFound();
+  try {
+    const post = allBlogs.find((p) =>
+      p._raw.flattenedPath.includes(params.slug)
+    );
+    const user = await getCurrentUser();
+    if (!post) return notFound();
 
-  return (
-    <Container className='mt-10'>
-      <ButtonBack className='mb-2' />
+    return (
+      <Container className='mt-10'>
+        <ButtonBack className='mb-2' />
 
-      <ClImage
-        width={1440}
-        height={600}
-        preview={false}
-        publicId={post?.banner}
-        className='mb-8 rounded-lg'
-      />
-
-      <h1 className='mb-2.5'>{post?.title}</h1>
-      <div className='my-8 flex items-center gap-2'>
-        <img
-          height={45}
-          width={45}
-          src='/images/my-avatar.jpg'
-          alt={user?.email as string}
-          className='aspect-square rounded-full object-cover'
+        <ClImage
+          width={1440}
+          height={600}
+          preview={false}
+          publicId={post?.banner}
+          className='mb-8 rounded-lg'
         />
-        <dl>
-          <dt className='text-base font-bold'>Nguyen Van Hoa</dt>
-          <dd className='text-muted-foreground mt-1 flex items-center gap-2 text-sm'>
-            <span>{format(new Date(post?.publishedAt), 'PPP')}</span> -
-            <span>{post?.readTime || 1} min read</span>
-          </dd>
-        </dl>
-      </div>
 
-      <hr className='mb-6' />
+        <h1 className='mb-2.5'>{post?.title}</h1>
+        <div className='my-8 flex items-center gap-2'>
+          <img
+            height={45}
+            width={45}
+            src='/images/my-avatar.jpg'
+            alt={user?.email as string}
+            className='aspect-square rounded-full object-cover'
+          />
+          <dl>
+            <dt className='text-base font-bold'>Nguyen Van Hoa</dt>
+            <dd className='text-muted-foreground mt-1 flex items-center gap-2 text-sm'>
+              <span>{format(new Date(post?.publishedAt), 'PPP')}</span> -
+              <span>{post?.readTime || 1} min read</span>
+            </dd>
+          </dl>
+        </div>
 
-      <section>
-        <article className='mdx projects prose dark:prose-invert mx-auto w-full transition-colors'>
-          <Mdx code={post?.body?.code} />
-        </article>
-      </section>
-    </Container>
-  );
+        <hr className='mb-6' />
+
+        <section>
+          <article className='mdx projects prose dark:prose-invert mx-auto w-full transition-colors'>
+            <Mdx code={post?.body?.code} />
+          </article>
+        </section>
+      </Container>
+    );
+  } catch (error) {
+    console.log({ error });
+
+    return <div>Error</div>;
+  }
 };
 
 export default BlogDetail;

@@ -11,13 +11,11 @@ export const generateMetadata = () => {
 export default function ProjectsPage() {
   return (
     <Container className='mt-10'>
-      <div>
-        <Accent>
-          <h1 className='mb-1'>Blogs</h1>
-        </Accent>
+      <Accent>
+        <h1 className='mb-1'>Blogs</h1>
+      </Accent>
 
-        <p>Web development thoughts and stories</p>
-      </div>
+      <p>Web development thoughts and stories</p>
 
       <ul className='mt-6 flex flex-col gap-2'>
         {allBlogs.map((i) => (
