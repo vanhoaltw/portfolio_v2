@@ -75,7 +75,8 @@
     @apply border-border;
   }
 
-  html {
+  html,
+  body {
     scroll-behavior: smooth;
     scroll-padding-top: 120px;
   }

@@ -1,8 +1,9 @@
 import { allProjects } from 'contentlayer/generated';
 
-import Accent from '@/components/Accent';
 import Container from '@/components/Container';
 import CardProject from '@/components/projects/CardProject';
+
+import TextAnimation from '@/app/animation/text-animation';
 
 export const generateMetadata = () => {
   return { title: 'Projects' };
@@ -11,13 +12,12 @@ export const generateMetadata = () => {
 export default function ProjectsPage() {
   return (
     <Container className='mt-10'>
-      <div>
-        <Accent>
-          <h1 className='mb-1'>Projects</h1>
-        </Accent>
-
-        <p>Showcase of my front-end related work</p>
-      </div>
+      <TextAnimation>
+        <h1 className='mb-1'>Projects</h1>
+      </TextAnimation>
+      <TextAnimation transition={{ delay: 0.2 }}>
+        Showcase of my front-end related work
+      </TextAnimation>
 
       <ul className='grid-cols-project mt-6 grid gap-4'>
         {allProjects.map((project) => (

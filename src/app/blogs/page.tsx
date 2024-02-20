@@ -1,8 +1,9 @@
 import { allBlogs } from 'contentlayer/generated';
 
-import Accent from '@/components/Accent';
 import Container from '@/components/Container';
 import CardBlog from '@/components/projects/CardBlog';
+
+import TextAnimation from '@/app/animation/text-animation';
 
 export const generateMetadata = () => {
   return { title: 'Blogs' };
@@ -11,11 +12,13 @@ export const generateMetadata = () => {
 export default function ProjectsPage() {
   return (
     <Container className='mt-10'>
-      <Accent>
+      <TextAnimation>
         <h1 className='mb-1'>Blogs</h1>
-      </Accent>
+      </TextAnimation>
 
-      <p>Web development thoughts and stories</p>
+      <TextAnimation transition={{ delay: 0.2 }}>
+        Web development thoughts and stories
+      </TextAnimation>
 
       <ul className='mt-6 flex flex-col gap-2'>
         {allBlogs.map((i) => (

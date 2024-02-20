@@ -26,7 +26,7 @@ export default function RootProvider({ children }: { children: ReactNode }) {
       <LazyMotion features={domAnimation}>
         <Fragment>
           <GlobalImagePreview ref={appPreviewImg} />
-          {children}
+          <main className='min-h-screen'>{children}</main>
         </Fragment>
       </LazyMotion>
       <Footer />

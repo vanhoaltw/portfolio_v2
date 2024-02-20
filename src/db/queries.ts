@@ -1,9 +1,10 @@
 import { sql } from 'drizzle-orm';
+import { cache } from 'react';
 
 import { db } from '@/db';
 import { guestbook } from '@/db/schema';
 
-export default async function getGuestbook() {
+export const getGuestbook = cache(async () => {
   try {
     return db
       .select()
@@ -12,4 +13,4 @@ export default async function getGuestbook() {
   } catch (error) {
     return [];
   }
-}
+});

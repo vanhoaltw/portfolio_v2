@@ -11,10 +11,10 @@ import CardBlog from '@/components/projects/CardBlog';
 import CardProject from '@/components/projects/CardProject';
 import Spotlight from '@/components/Spotlight';
 
-export default async function HomePage() {
-  const featuredProject = getFeaturedProjects().slice(0, 4);
-  const featuredBlogs = getFeaturedBlogs().slice(0, 3);
+const featuredProject = getFeaturedProjects().slice(0, 4);
+const featuredBlogs = getFeaturedBlogs().slice(0, 3);
 
+export default function HomePage() {
   return (
     <main className='relative space-y-20'>
       <Container className='relative pt-10'>
@@ -29,6 +29,7 @@ export default async function HomePage() {
       <Container>
         <Accent className='h1 mb-1'>Projects</Accent>
         <p className='mb-6'>Showcase of my front-end related work</p>
+
         <div className='grid-cols-project grid gap-4'>
           {featuredProject.map((project) => (
             <CardProject data={project} key={project._id} />
