@@ -1,9 +1,8 @@
 import { allBlogs } from 'contentlayer/generated';
 
+import TextAnimation from '@/components/animation/text-animation';
 import Container from '@/components/Container';
 import CardBlog from '@/components/projects/CardBlog';
-
-import TextAnimation from '@/app/animation/text-animation';
 
 export const generateMetadata = () => {
   return { title: 'Blogs' };
@@ -13,10 +12,13 @@ export default function ProjectsPage() {
   return (
     <Container className='mt-10'>
       <TextAnimation>
-        <h1 className='mb-1'>Blogs</h1>
+        <h1 className='mb-2'>Blogs</h1>
       </TextAnimation>
 
-      <TextAnimation transition={{ delay: 0.2 }}>
+      <TextAnimation
+        className='text-muted-foreground'
+        transition={{ delay: 0.4 }}
+      >
         Web development thoughts and stories
       </TextAnimation>
 

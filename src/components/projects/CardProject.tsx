@@ -39,8 +39,8 @@ const CardProject = ({ data }: Props) => {
         publicId={banner}
         preview={false}
       />
-      <p className='h4 z-50 mb-2'>{title}</p>
-      <p className='text-foreground/80 mb-4 text-sm'>{description}</p>
+      <p className='h3 z-50 mb-2'>{title}</p>
+      <p className='text-foreground mb-4 text-sm'>{description}</p>
 
       <TechStack data={techs} className='mt-auto' />
     </a>

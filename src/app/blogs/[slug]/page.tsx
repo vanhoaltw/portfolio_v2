@@ -6,6 +6,7 @@ import { notFound } from 'next/navigation';
 
 import { getCurrentUser } from '@/lib/session';
 
+import TextAnimation from '@/components/animation/text-animation';
 import ButtonBack from '@/components/buttons/ButtonBack';
 import ClImage from '@/components/ClImage';
 import Container from '@/components/Container';
@@ -66,7 +67,15 @@ const BlogDetail = async ({ params }: Props) => {
           className='mb-8 rounded-lg'
         />
 
-        <h1 className='mb-2.5'>{post?.title}</h1>
+        <TextAnimation>
+          <h1 className='mb-2.5'>{post?.title}</h1>
+        </TextAnimation>
+        <TextAnimation
+          transition={{ delay: 0.4 }}
+          className='text-muted-foreground italic'
+        >
+          {post.description}
+        </TextAnimation>
         <div className='my-8 flex items-center gap-2'>
           <img
             height={45}

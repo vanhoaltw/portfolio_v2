@@ -1,8 +1,8 @@
 'use client';
 
-import { domAnimation, LazyMotion } from 'framer-motion';
+import { domAnimation, LazyMotion, MotionConfig } from 'framer-motion';
 import { ThemeProvider } from 'next-themes';
-import { Fragment, ReactNode, useEffect } from 'react';
+import { ReactNode, useEffect } from 'react';
 
 import GlobalImagePreview, {
   appPreviewImg,
@@ -14,6 +14,14 @@ const repoPrompt = `
   Taking a peek huh? Check out the source code: https://github.com/vanhoaltw
 `;
 
+const motionConfig = {
+  type: 'spring',
+  mass: 5,
+  stiffness: 500,
+  damping: 50,
+  restDelta: 0.0001,
+};
+
 export default function RootProvider({ children }: { children: ReactNode }) {
   useEffect(() => {
     // eslint-disable-next-line no-console
@@ -22,14 +30,14 @@ export default function RootProvider({ children }: { children: ReactNode }) {
 
   return (
     <ThemeProvider attribute='class' defaultTheme='dark'>
-      <Header />
       <LazyMotion features={domAnimation}>
-        <Fragment>
+        <MotionConfig transition={motionConfig}>
+          <Header />
           <GlobalImagePreview ref={appPreviewImg} />
           <main className='min-h-screen'>{children}</main>
-        </Fragment>
+          <Footer />
+        </MotionConfig>
       </LazyMotion>
-      <Footer />
     </ThemeProvider>
   );
 }

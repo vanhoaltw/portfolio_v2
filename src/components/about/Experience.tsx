@@ -16,10 +16,13 @@ const Experience = () => {
             <span className='ring-border/80 absolute -left-4 flex items-center justify-center overflow-hidden rounded-full ring-8'>
               <img height={30} width={30} alt={i.title} src={i.logoUrl} />
             </span>
-            <h4 className='mb-2 flex items-center'>{i.title}</h4>
-            <time className='text-muted-foreground mb-3 block text-sm font-semibold leading-none'>
-              {i.date}
-            </time>
+            <h4 className='mb-1 flex items-center uppercase'>{i.title}</h4>
+            <div className='mb-3 flex items-center gap-2 text-sm font-medium'>
+              <i>{i?.role}</i> |
+              <time className='text-muted-foreground block leading-none'>
+                {i.date}
+              </time>
+            </div>
 
             <div className='space-y-1 '>
               {i?.tasks.map((task) => (
@@ -33,7 +36,7 @@ const Experience = () => {
             {i.url && (
               <PrimaryLink href={i.url} className='mt-4'>
                 <Button variant='outline'>
-                  <Link size={14} /> See more
+                  <Link size={14} /> Live Website
                 </Button>
               </PrimaryLink>
             )}

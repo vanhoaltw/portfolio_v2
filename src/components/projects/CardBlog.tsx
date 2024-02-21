@@ -37,17 +37,13 @@ const CardBlog = ({ data }: Props) => {
       />
 
       <dl>
-        <dd className='text-muted-foreground flex gap-2 text-xs'>
-          <span className='inline-flex items-center gap-1.5'>
-            <Calendar size={12} />
-            {format(new Date(data.publishedAt), 'dd/MM/yyyy')}
-          </span>
-          -
-          <span className='inline-flex items-center gap-1.5'>
-            <Clock size={12} /> {data.readTime} minutes
-          </span>
+        <dd className='text-muted-foreground flex items-center gap-1 text-sm'>
+          <Calendar size={16} />
+          {format(new Date(data.publishedAt), 'dd/MM/yyyy')}
+          <span className='mx-1 inline-block'>-</span>
+          <Clock size={16} /> {data.readTime} minutes
         </dd>
-        <dt className='h4 mb-2 mt-1.5'>{data.title}</dt>
+        <dt className='h3 mb-2 mt-1.5'>{data.title}</dt>
         <dd className='flex items-center gap-3 text-sm font-medium'></dd>
         <dd className='line-clamp-2 min-w-0 break-words text-sm'>
           {data?.description}

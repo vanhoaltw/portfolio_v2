@@ -13,7 +13,7 @@ export default function Header() {
 
   useMotionValueEvent(scrollYProgress, 'change', (current) => {
     if (typeof current === 'number') {
-      setReachTop(current < 0.05);
+      setReachTop(current < 0.01);
     }
   });
 

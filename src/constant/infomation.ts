@@ -13,6 +13,7 @@ export const EXPERIENCES = [
   {
     id: 'onmic',
     date: '03/2022 - Present',
+    role: 'Front-End Engineer',
     title: 'Onmic - CONNECTION MADE AUDIBLE',
     url: 'https://app.getonmic.com/vi',
     logoUrl:
@@ -37,6 +38,7 @@ export const EXPERIENCES = [
     id: 'fiahub',
     date: '01/2023 - 02/2023',
     title: 'Fiahub',
+    role: 'Freelance Front-End Developer',
     url: 'https://www.fiahub.com',
     logoUrl:
       'https://fiahub-assets.s3-ap-southeast-1.amazonaws.com/short_logo.png',
@@ -53,6 +55,7 @@ export const EXPERIENCES = [
   },
   {
     id: 'fihome',
+    role: 'Intern Front-End Developer',
     date: '12/2021 - 02/2022',
     title: 'Fihome',
     url: 'https://fihome.vn',
@@ -70,6 +73,7 @@ export const EXPERIENCES = [
   },
   {
     id: 'hodace',
+    role: 'Intern Front-End Developer',
     date: '10/2021 - 12/2021',
     title: 'HODACE NETWORK',
     url: 'https://hodace.network',

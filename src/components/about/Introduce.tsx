@@ -4,9 +4,8 @@ import { differenceInYears } from 'date-fns';
 import { m } from 'framer-motion';
 import Image from 'next/image';
 
+import TextAnimation from '@/components/animation/text-animation';
 import Spotlight from '@/components/Spotlight';
-
-import TextAnimation from '@/app/animation/text-animation';
 
 const getAge = () => differenceInYears(new Date(), new Date(2001, 6, 26));
 
@@ -33,9 +32,9 @@ const Introduce = () => {
         <h1 className='mb-8'>About me</h1>
       </TextAnimation>
       <Spotlight className='-left-40 -top-20 scale-150' />
-      <div className='bg-dot items-start gap-12 py-4 sm:flex'>
+      <div className='bg-dot flex flex-col items-start gap-20 gap-y-4 py-4 md:flex-row'>
         <m.ul
-          className='space-y-6'
+          className='flex-1 space-y-6'
           initial='hide'
           animate='show'
           transition={{ delayChildren: 0.2, staggerChildren: 0.025 }}
@@ -59,7 +58,7 @@ const Introduce = () => {
           </m.li>
         </m.ul>
 
-        <div className='sticky top-8 mt-12 shrink-0'>
+        <div className='sticky top-8 hidden shrink-0 md:block'>
           <m.div
             initial='hide'
             animate='show'
@@ -73,8 +72,8 @@ const Introduce = () => {
               priority
               src='/images/my-avatar.jpg'
               className='mx-auto aspect-square rotate-6 rounded-md object-cover shadow-lg'
-              height={150}
-              width={200}
+              height={250}
+              width={250}
               alt='Me'
             />
           </m.div>
