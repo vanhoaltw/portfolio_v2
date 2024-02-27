@@ -1,12 +1,7 @@
 'use client';
 
 import { m } from 'framer-motion';
-import {
-  GithubIcon,
-  InstagramIcon,
-  LinkedinIcon,
-  MailIcon,
-} from 'lucide-react';
+import { SiGithub, SiGmail, SiLinkedin, SiX } from 'react-icons/si';
 
 import { cn } from '@/lib/utils';
 
@@ -37,7 +32,7 @@ const Socials = ({ className }: { className?: string }) => {
             title={name}
             className='text-muted-foreground hover:text-foreground'
           >
-            <Icon size='1.6rem' />
+            <Icon size='1.3rem' />
           </UnstyledLink>
         </m.li>
       ))}
@@ -46,9 +41,9 @@ const Socials = ({ className }: { className?: string }) => {
 };
 
 const stacks = [
-  { name: 'Github', icon: GithubIcon, url: siteConfig.githubUrl },
-  { name: 'Linked in', icon: LinkedinIcon, url: siteConfig.linkedUrl },
-  { name: 'Instagram', icon: InstagramIcon, url: siteConfig.instagramUrl },
-  { name: 'Mail', icon: MailIcon, url: 'mailto:vanhoaltw@gmail.com' },
+  { name: 'Github', icon: SiGithub, url: siteConfig.githubUrl },
+  { name: 'Linked in', icon: SiLinkedin, url: siteConfig.linkedUrl },
+  { name: 'Instagram', icon: SiX, url: siteConfig.twitterUrl },
+  { name: 'Mail', icon: SiGmail, url: 'mailto:vanhoaltw@gmail.com' },
 ];
 export default Socials;

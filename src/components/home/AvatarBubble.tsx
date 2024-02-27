@@ -17,8 +17,7 @@ const AvatarBubble = () => {
           height={280}
           width={280}
           alt='Me'
-          className='aspect-square object-cover'
-          style={{ borderRadius: '50% 50% 8px 50%' }}
+          className='aspect-square rounded-full object-cover'
         />
       </div>
     </m.div>

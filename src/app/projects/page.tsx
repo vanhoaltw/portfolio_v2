@@ -2,6 +2,7 @@ import { allProjects } from 'contentlayer/generated';
 
 import TextAnimation from '@/components/animation/text-animation';
 import Container from '@/components/Container';
+import GithubRepositories from '@/components/GithubRepositories';
 import CardProject from '@/components/projects/CardProject';
 
 export const generateMetadata = () => {
@@ -26,6 +27,10 @@ export default function ProjectsPage() {
           <CardProject key={project._id} data={project} />
         ))}
       </ul>
+
+      <h2 className='mb-1 mt-12'>Side Projects</h2>
+      <p className='text-muted-foreground mb-4'>My github repositories</p>
+      <GithubRepositories />
     </Container>
   );
 }

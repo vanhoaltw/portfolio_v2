@@ -17,8 +17,8 @@ const Experience = () => {
               <img height={30} width={30} alt={i.title} src={i.logoUrl} />
             </span>
             <h4 className='mb-1 flex items-center uppercase'>{i.title}</h4>
-            <div className='mb-3 flex items-center gap-2 text-sm font-medium'>
-              <i>{i?.role}</i> |
+            <div className='mb-3 flex flex-col items-start gap-2 text-sm font-medium sm:flex-row sm:items-center'>
+              <i>{i?.role}</i> <span className='hidden sm:inline'>|</span>
               <time className='text-muted-foreground block leading-none'>
                 {i.date}
               </time>
