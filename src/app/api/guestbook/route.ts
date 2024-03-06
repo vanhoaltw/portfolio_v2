@@ -3,6 +3,10 @@ import { NextResponse } from 'next/server';
 import { getGuestbook } from '@/db/queries';
 
 export const GET = async () => {
-  const guestbook = await getGuestbook();
-  return NextResponse.json({ data: guestbook });
+  try {
+    const guestbook = await getGuestbook();
+    return NextResponse.json({ data: guestbook });
+  } catch {
+    return NextResponse.json({ data: [] });
+  }
 };
