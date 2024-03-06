@@ -6,5 +6,6 @@ import projects__nextChatMdx from './projects__next-chat.mdx.json' assert { type
 import projects__onmicMdx from './projects__onmic.mdx.json' assert { type: 'json' }
 import projects__primeMdx from './projects__prime.mdx.json' assert { type: 'json' }
 import projects__shopmiMdx from './projects__shopmi.mdx.json' assert { type: 'json' }
+import projects__homedyMdx from './projects__homedy.mdx.json' assert { type: 'json' }
 
-export const allProjects = [projects__fiahubMdx, projects__fihomeMdx, projects__nextChatMdx, projects__onmicMdx, projects__primeMdx, projects__shopmiMdx]
+export const allProjects = [projects__fiahubMdx, projects__fihomeMdx, projects__nextChatMdx, projects__onmicMdx, projects__primeMdx, projects__shopmiMdx, projects__homedyMdx]
