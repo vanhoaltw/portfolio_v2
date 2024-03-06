@@ -11,18 +11,17 @@ const Intro = () => {
     <section className='relative mb-16 flex flex-col justify-center'>
       <div className='my-12 flex items-center gap-8'>
         <div className='bg-dot flex flex-col gap-2'>
-          <TextAnimation className='text-foreground text-3xl font-bold md:text-5xl'>
-            Nguyen Van Hoa
-          </TextAnimation>
-          <TextAnimation
-            transition={{ delay: 0.2 }}
-            className='text-muted-foreground'
-          >
-            Front-End / Fresher Back-End
-          </TextAnimation>
-          <TextAnimation transition={{ delay: 0.4 }} className='my-6 max-w-xl'>
-            A developer based in Viet Nam 🇻🇳. I love crafting immersive web
-            experiences, beautiful, intuitive and delightful to use.
+          <TextAnimation>
+            <h1 className='text-foreground text-3xl font-bold md:text-5xl'>
+              Nguyen Van Hoa
+            </h1>
+            <p className='text-muted-foreground mt-2.5'>
+              Front-End / Fresher Back-End
+            </p>
+            <p className='my-6 max-w-xl'>
+              A developer based in Viet Nam 🇻🇳. I love crafting immersive web
+              experiences, beautiful, intuitive and delightful to use.
+            </p>
           </TextAnimation>
           <Socials />
           <div className='mt-8 flex flex-wrap gap-4'>
