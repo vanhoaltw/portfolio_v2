@@ -4,9 +4,6 @@ import { domAnimation, LazyMotion, MotionConfig } from 'framer-motion';
 import { ThemeProvider } from 'next-themes';
 import { ReactNode, useEffect } from 'react';
 
-import GlobalImagePreview, {
-  appPreviewImg,
-} from '@/components/GlobalImagePreview';
 import Footer from '@/components/layouts/Footer';
 import Header from '@/components/layouts/Header';
 
@@ -33,7 +30,6 @@ export default function RootProvider({ children }: { children: ReactNode }) {
       <LazyMotion features={domAnimation}>
         <MotionConfig transition={motionConfig}>
           <Header />
-          <GlobalImagePreview ref={appPreviewImg} />
           <main className='min-h-screen'>{children}</main>
           <Footer />
         </MotionConfig>

@@ -5,8 +5,6 @@ import buildUrl from 'cloudinary-build-url';
 
 import { cn } from '@/lib/utils';
 
-import { appPreviewImg } from '@/components/GlobalImagePreview';
-
 export default function ClImage({
   width,
   height,
@@ -57,10 +55,6 @@ export default function ClImage({
     },
   });
 
-  const handlePreviewImg = () => {
-    if (preview) appPreviewImg?.current?.show?.(url);
-  };
-
   return (
     <figure
       className={cn(
@@ -81,7 +75,6 @@ export default function ClImage({
             ? `${aspectRatio * 100}%`
             : `${(+height / +width) * 100}%`,
         }}
-        onClick={handlePreviewImg}
       >
         <div
           className='absolute inset-0 z-0 bg-cover bg-center blur-lg'
